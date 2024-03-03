@@ -1,0 +1,65 @@
+name: deploy to gh-pages
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      working-directory: ./na-log-engine
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+
+      - name: Check node-modules Cache
+        uses: actions/cache@v3
+        id: node-modules-cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        working-directory: ${{ env.working-directory }}
+        run: yarn install --immutable --immutable-cache --check-cache
+
+      - name: Copy Directories
+        run: |
+          directories=("posts" "public" "page-item") 
+          for dir in "${directories[@]}"; do
+            echo "Remove $dir in working-directory"
+            rm -rf ${{ env.working-directory }}/"$dir"
+            if [ -d "$dir" ]; then
+            echo "Copy $dir"
+              cp -rf "$dir" ${{ env.working-directory }}
+            fi
+          done    
+          ls -al ${{ env.working-directory }}
+
+      - name: Build React
+        working-directory: ${{ env.working-directory }}
+        run: |
+          echo $GITHUB_REPOSITORY
+          yarn build
+        env:
+          GITHUB_REPOSITORY: $GITHUB_REPOSITORY
+
+      - name: Deploy to 'gh-pages' branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.working-directory }}/out
