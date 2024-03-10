@@ -39,7 +39,7 @@ jobs:
 
       - name: Copy Directories
         run: |
-          directories=("posts" "public" "page-item") 
+          directories=("post" "public" "page-item") 
           for dir in "${directories[@]}"; do
             echo "Remove $dir in working-directory"
             rm -rf ${{ env.working-directory }}/"$dir"
