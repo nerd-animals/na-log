@@ -1,0 +1,127 @@
+---
+title: 'git 설치 방법 (for Mac)'
+summary: '개발자에게 가장 중요한 것들 중 하나인 git, 어떻게 설치할까요? (for Mac)'
+author: 'otter'
+tags: ['git', 'mac', 'homebrew']
+date: 2024-3-22
+---
+
+## Homebrew 다운로드
+
+- **Homebrew**란?\
+애플에서 제공하지 않는, Mac OS에서 필요한 유용한 패키지를 설치할 수 있도록 도와주는 패키지 관리자입니다.\
+Homebrew를 설치하면, 터미널에서 `brew install {설치대상}`을 입력해 유용한 패키지를 쉽게 설치할 수 있습니다.\
+(그 중 한 가지가 오늘 설치할 **git**입니다.)
+
+---
+
+[git 공식 홈페이지](https://git-scm.com)에 접속합니다.
+
+### 1. Download for Mac 클릭
+![download](https://github.com/nerd-animals/na-log-engine/assets/144116866/4fee77a1-2849-490f-9983-26099db11bb7)
+
+`Download for Mac`을 클릭합니다.
+
+### 2. homebrew 클릭
+![homebrew](https://github.com/nerd-animals/na-log-engine/assets/144116866/6d2c28fa-e3ab-4c83-8068-37f691434b2f)
+
+`homebrew`를 클릭하면 homebrew 페이지로 이동됩니다.
+
+### 3. 설치 명령어 복사
+![copy](https://github.com/nerd-animals/na-log-engine/assets/144116866/dac71d22-8c58-4b84-99c1-9782f9563968)
+
+📋 아이콘을 클릭하면 왼쪽의 설치 명령어가 복사됩니다.
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+복사가 되지 않는다면 위의 명령어 참고
+
+### 4. 터미널 열기
+![terminal](https://github.com/nerd-animals/na-log-engine/assets/144116866/a74f08ea-728a-45f7-8e47-b9f9f6237143)
+
+`command + space` 키를 눌러 터미널을 검색 후 실행합니다.
+
+### 5. 터미널에 명령어 붙여넣기
+
+`3.설치 명령어 복사`에서 복사했던 명령어를 붙여 넣습니다.
+
+![Password](https://github.com/nerd-animals/na-log-engine/assets/144116866/6e280d7b-1bfd-4912-a3aa-4b8f1ef3a82f)
+
+`Password: ` 출력 시, 맥 로그인 비밀번호를 입력하면, 설치가 시작됩니다. (📌시간이 조금 오래 걸립니다.)
+
+### 5-1. M1 Mac
+```shell
+==> Next steps:
+- Run these three commands in your terminal to add Homebrew to your PATH:
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/{사용자명}/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/{사용자명}/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+```
+
+git 설치 전, M1 Mac은 추가로 해야할 사항이 있습니다.\
+아마 위의 brew 설치가 다 됐다면, `Next steps`이라는 안내사항이 떴을 건데요.\
+Homebrew 기본 경로가 M1과 Intel이 다르기 때문에 이 과정을 꼭 해야만 정상적으로 git 설치가 가능합니다.
+
+```shell
+$ echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/{사용자명}/.zprofile
+```
+```shell
+$ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/{사용자명}/.zprofile
+```
+```shell
+$ eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+안내와 같이 세가지 명령어를 입력해주면 해결됩니다.\
+사용자명에 꼭 **사용자명**을 넣고 실행해주세요!
+
+### 6. 설치 완료
+
+![image](https://github.com/nerd-animals/na-log-engine/assets/144116866/6bddbebe-44b5-402e-8f37-f523309c2718)
+
+설치가 완료된 후 `brew help` 명령어 및 `brew --version` 명령어를 통해 잘 설치가 됐는지 확인합니다.
+
+
+## 오류 발생 시(M1 mac)
+<aside>
+🚧 위의 <span style={{color:'red'}}>**Next steps**</span>을 하지 않았다면, 발생하는 오류입니다!\
+<span style={{color:'red'}}>**Next steps**</span>을 꼭 하고 와주세요!
+
+하셨다면 해당 챕터는 건너뛰셔도 됩니다.😊
+</aside>
+```shell
+zsh: command not found: brew
+```
+next steps을 하지 않고, `brew help` 명령어 시 위의 오류가 출력될 것입니다.
+- M1 Mac : `/opt/homebrew/`
+- Intel Mac : `/usr/local`
+
+Homebrew 기본 경로가 M1 Mac과 Intel Mac이 다르기 때문에 발생되는 오류입니다.
+
+---
+
+## Git 설치
+1. 터미널에 명령어 입력하기
+
+```shell
+brew install git
+```
+위의 명령어를 입력하여 git을 설치합니다.
+
+2. 설치(버전) 확인하기
+
+```shell
+git --version
+```
+정상적으로 git 버전이 출력되면 정상적으로 설치된 것입니다. 굿!
+
+---
+
+## 참고 링크
+https://velog.io/@wijoonwu/Mac-OS-에서-Git-설치하기
+
+https://somjang.tistory.com/entry/macOS-M1-Mac-에-brew-설치하는-방법
