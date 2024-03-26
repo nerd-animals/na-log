@@ -1,0 +1,129 @@
+---
+title: '…state와 (prev) ⇒ …prev의 차이'
+summary: 'react state에서 prev는 무엇을 담당해줄까요?'
+date: 2024-3-26
+author: 'otter'
+tags: ['front-end', 'react']
+---
+<aside>
+📝 prev (previous)
+
+1. 형용사 (시기적으로 이야기 중인 사건·사물) 이전[전]의, 먼젓번의 (=prior)
+2. 형용사 (이야기 중인 시간) 바로 앞의 (=preceding)
+</aside>
+
+---
+
+```tsx
+import { useState } from 'react';
+
+export default function Write() {
+  const [post, setPost] = useState({
+    title: '',
+    tag: '',
+  });
+
+  const onChangeInputPost = (e) => {
+    setPost({...post, [e.target.className]: e.target.value});
+  };
+  
+    <div className="write-wrapper">
+      <div className="write-editor">
+        <div className="front-matter">
+          <input
+            className="title"
+            type="text"
+            onChange={onChangeInputPost}
+          />
+          <input
+            className="tags"
+            type="text"
+            onChange={onChangeInputPost}
+          />
+      </div>
+    </div>
+  </div>
+```
+
+현재 코드도 나쁘지는 않다.\
+하지만, React에서 state 실행은 동작함수가 여러 개 실행되더라도 업데이트를 **대기열, 임시 저장공간에 저장'만'** 되기 때문에 이전 상태, 즉 **최신 값을 보장하지 않는다.**
+
+여러 개의 입력 필드가 있을 때, 동시에 여러 필드를 수정한다면, 최신 값을 고려하지 않을 수도 있다는 것이다.\
+즉, **업데이트가 안될 수도** 있는 가능성이 있다는 것.
+
+## prev 알아보기
+
+```jsx
+ const [state, setState] = useState(0);
+  const sumAll = () => {
+    setState(state + 1);
+    setState(state + 2);
+    setState(state + 3);
+    setState(state + 4);
+  };
+  const sumAllWithPrevState = () => {
+    setState((prev) => prev + 1);
+    setState((prev) => prev + 2);
+    setState((prev) => prev + 3);
+    setState((prev) => prev + 4);
+  };
+
+  return (
+    <>
+      <div>결과는 : {state}</div>
+      <button type='button' onClick={sumAll}>
+        sumAll
+      </button>
+      <button type='button' onClick={sumAllWithPrevState}>
+        sumAllWithPrevState
+      </button>
+    </>
+  );
+```
+
+좋아보이는 [예시 코드](https://velog.io/@mh-yeo/React-prevState-in-setState)가 있어 [예제](https://otterbits.github.io/no-answer/)를 만들어보았다. (감사합니다.)
+
+`sumAll` : 최신 값을 고려하지 않고 한다면, `4`가 나올 것이고,
+
+`sumAllWithPrevState` : 최신 값을 고려한다면, `10`이 나올 것이다.
+
+## 개선 코드
+
+```tsx
+import { useState } from 'react';
+
+export default function Write() {
+  const [post, setPost] = useState({
+    title: '',
+    tag: '',
+  });
+
+	  const onChangeInputPost = (e) => {
+    setPost((prevState) => ({
+      ...prevState,
+      [e.target.className]: e.target.value,
+    }));
+  };
+
+  
+    <div className="write-wrapper">
+      <div className="write-editor">
+        <div className="front-matter">
+          <input
+            className="title"
+            type="text"
+            onChange={onChangeInputPost}
+          />
+          <input
+            className="tags"
+            type="text"
+            onChange={onChangeInputPost}
+          />
+      </div>
+    </div>
+  </div>
+```
+
+때문에 이렇게 state 함수인 `setPost` 함수가 `prevState`를 통해 최신 값으로 업데이트하도록 개선하였다.
+
+`💣`no-answer 하나 배웠다!
