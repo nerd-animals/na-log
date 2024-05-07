@@ -42,10 +42,10 @@ jobs:
           directories=("post" "public" "page-item") 
           for dir in "${directories[@]}"; do
             echo "Remove $dir's contents in working-directory"
-            rm -rf ${{ env.working-directory }}/"$dir"/
+            rm -rf ${{ env.working-directory }}/"$dir"/*
             if [ -d "$dir" ]; then
             echo "Copy $dir"
-              cp -rf "$dir"/* ${{ env.working-directory }}/"$dir"
+              cp -r "$dir"/* ${{ env.working-directory }}/"$dir"
             fi
           done    
           ls -al ${{ env.working-directory }}
