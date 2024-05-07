@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /write
+
+Sitemap: https://nerd-animals.github.io/na-log/sitemap.xml
