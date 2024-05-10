@@ -8,8 +8,7 @@ tags: ['front-end', 'css', 'sass', 'scss']
 
 ## 개요
 
-<aside>
-📝 css와 sass(scss), 이름은 비슷한데 어떤 차이가 있을까?
+<aside>📝 css와 sass(scss), 이름은 비슷한데 어떤 차이가 있을까?
 </aside>
 
 
@@ -63,45 +62,40 @@ SASS, SCSS가 무엇인지 들어가기에 앞서 먼저 **CSS 전처리기**가
     - Compile 시간 소요
 - 예(모듈)
     
+    <figure>
     <img src="https://github.com/nerd-animals/na-log/assets/144116866/fe2b5273-d992-402d-906a-5fa12f3f5653" alt="2024.01.30." width="100%"/>
-    
-    2024.01.30. 기준
+    <figcaption>2024.01.30. 기준</figcaption>
+    </figure>
     
     [less vs sass vs stylus | npm trends](https://npmtrends.com/less-vs-sass-vs-stylus)
     
     - SASS(SCSS)
-        
+
         [Sass: Syntactically Awesome Style Sheets](https://sass-lang.com/)
-        
         - 가장 먼저 나왔고, 다른 전처리기에 비해 상대적으로 다양한 기능이 제공된다고 한다.
         - 설치한 이용자도 가장 많은 것 같다. 업데이트도 잘 되고 있고!
     - Less
-        
+
         [Getting started | Less.js](https://lesscss.org/#)
-        
         - 원래는 컴파일 속도가 빨랐다고 하는데, SASS도 업데이트 이후 큰 차이가 없다고 한다.
     - Stylus
-        
+    
         [Stylus](https://stylus-lang.com/)
-        
         - 전처리기 중 가장 나중에 나왔다고 한다. 기능도 많다고 하긴 하는데, 널리 사용되고 있는 SASS를 쓸 계획이다.
         - 홈페이지가 사실 제일 깔쌈하긴 하다.
 
 ### SASS vs SCSS
 
 - SASS
-    
     ```sass
     .content
       border: 1px solid #3bbfce
       margin: 8px
       padding: 4px
     ```
-    
     - **Syntactically Awesome Style Sheets - 문법적으로 어썸!한 스타일시트**
     - 들여쓰기 + 줄바꿈 형식(Python 구문 스타일)
 - SCSS
-    
     ```scss
     .content {
       border: 1px solid #3bbfce;
@@ -109,7 +103,6 @@ SASS, SCSS가 무엇인지 들어가기에 앞서 먼저 **CSS 전처리기**가
       padding: 4px;
     }
     ```
-    
     - **Sassy CSS - 문법적으로 짱 멋진!, sass스러운(Sassy) CSS**
     - SASS의 3버전에서 등장한 언어
         - 좀 더 범용성이 넓고, CSS와 호환성이 좋음
@@ -131,7 +124,6 @@ SASS, SCSS가 무엇인지 들어가기에 앞서 먼저 **CSS 전처리기**가
     
 
 [SassMeister | The Sass Playground!](https://www.sassmeister.com/)
-
 이 사이트에서도 온라인으로 미리 테스트해볼 수는 있지만, VSCode에서 작업하는 경우가 많을 거니까 아래의 절차로 한번 설치를 해보자.
 
 - 구현 방식
@@ -142,9 +134,7 @@ SASS, SCSS가 무엇인지 들어가기에 앞서 먼저 **CSS 전처리기**가
 
 Dart-sass : 가장 따끈따끈한 친구다. 신규 기능도 담고 있기 때문에 나는 이걸로 진행할 거다! **(2024.01.30.기준)**
 
-[Node.js](https://nodejs.org/en)
-
-1. node.js를 설치해준다.
+1. [Node.js](https://nodejs.org/en)를 설치해준다.
 2. `$ npm install sass -g`: sass를 글로벌하게 설치해주세요! (어느 폴더도 작동되게 해주세요!)
 3. `$ npm show sass version` : sass의 현재 버전을 보여주세요!
 4. style.scss을 만든 후 아래 코드를 복붙한다. 아니면 자기가 원하는 color 값을 입력해보자!
@@ -174,11 +164,8 @@ Dart-sass : 가장 따끈따끈한 친구다. 신규 기능도 담고 있기 때
 ### SASS watch
 
 근데, 앞의 명령어로 수동으로 sass를 컴파일해달라고 하자니 너무 번거롭다. 자동으로 컴파일해줄 순 없을까?
-
 `sass --watch style.scss style.css` : `--watch` or `-w`라는 플래그를 붙여 자동으로 컴파일하게 할 수 있다.
-
 [Sass: Dart Sass Command-Line Interface](https://sass-lang.com/documentation/cli/dart-sass/)
-
 - [플래그](https://sass-lang.com/documentation/cli/dart-sass/)는 해당 문서 참고!
 
 `sass --watch scss:css` : 폴더 경로로도 가능하다! 
@@ -205,25 +192,19 @@ Dart-sass : 가장 따끈따끈한 친구다. 신규 기능도 담고 있기 때
 - 다양한 VS Code Extension
 
 [scss-lint](https://marketplace.visualstudio.com/items?itemName=adamwalzer.scss-lint)
-
 [scss-formatter](https://marketplace.visualstudio.com/items?itemName=sibiraj-s.vscode-scss-formatter)
-
 [scss-snippet](https://marketplace.visualstudio.com/items?itemName=Miladfathy.scss-snippet)
-
 [scss-scope-helper](https://marketplace.visualstudio.com/items?itemName=ffpetrovic.scss-scope-helper)
-
 [Wscats](https://marketplace.visualstudio.com/items?itemName=Wscats.eno)
 
 그 외 다양한 extension이 있으니, 한번 설치하면서 확인해보도록 하자.
 
 scss파일을 저장만 하면 바로 css로 컴파일해주는 친구도 있다.
-
 일단 나는 맨 위의 live sass compiler로 해볼까 싶다.
 
 ### SCSS / CSS 폴더 분리
 
 고마운 주선자 친구인 `map`도 없애줄 겸 css, scss 폴더를 분리하여 프로젝트를 구성해보자!
-
 setting.json을 열고, 다음과 같이 코드를 추가해준다.
 
 ```json
@@ -266,18 +247,14 @@ scss는 현업에서 자주 쓰이는 지는 확인하지 못했다.
 
 ![cat_coding](https://github.com/nerd-animals/na-log/assets/144116866/c356ca7e-79d0-4932-a166-48df295df508)
 
-파이팅해보자! 😎
+<center>파이팅해보자! 😎</center>
 
 ---
 
 ### 참고 링크
 
 [velog](https://velog.io/@heumheum2/Nextjs-에서-scss-설정)
-
 [[아무튼 Sass] 1. 시작하기 - Sass 개념, 컴파일러 설치](https://nykim.work/97)
-
 [💎 SaSS & SCSS 소개 & 설치 세팅 💯 총정리](https://inpa.tistory.com/entry/SCSS-💎-SassSCSS-란-설치-및-컴파일)
-
 [[CSS] CSS, SASS, SCSS 차이점, 사용방법](https://cocoon1787.tistory.com/843)
-
 [CSS 전처리기(Pre-Processor) 배우기!](https://kdydesign.github.io/2019/05/12/css-preprocessor/)
