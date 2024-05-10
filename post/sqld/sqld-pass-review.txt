@@ -3,18 +3,17 @@
 5:I[5613,[],""]
 7:I[31778,[],""]
 8:I[25250,["5250","static/chunks/5250-f902508d1dda8599.js","7894","static/chunks/app/(contents)/layout-f321296cefda825a.js"],""]
-3:T243c,<img src="https://github.com/nerd-animals/na-log/assets/144116866/3e34aaea-d004-4f51-94f1-a98682ac6c83" width="50%" height="50%"/>
+3:T23c4,<img src="https://github.com/nerd-animals/na-log/assets/144116866/3e34aaea-d004-4f51-94f1-a98682ac6c83"/>
 
 ## 🤔 SQLD?
 
-<aside>
-📝 SQL 개발자(SQLD, SQL Developer)란 데이터베이스와 데이터 모델링에 대한 지식을 바탕으로 응용 소프트웨어를 개발하면서 데이터를 조작하고 추출하는데 있어서 정확하고 최적의 성능을 발휘하는 SQL을 작성할 수 있는 개발자를 말한다.
+<aside>📝 SQL 개발자(SQLD, SQL Developer)란 데이터베이스와 데이터 모델링에 대한 지식을 바탕으로 응용 소프트웨어를 개발하면서 데이터를 조작하고 추출하는데 있어서 정확하고 최적의 성능을 발휘하는 SQL을 작성할 수 있는 개발자를 말한다.
 </aside>
 
 ## 📌 결과
 
 <figure>
-<img src="https://github.com/nerd-animals/na-log/assets/144116866/5480d115-211c-4142-9391-c89a6f856d49" width="50%" height="50%"/>
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/5480d115-211c-4142-9391-c89a6f856d49"/>
 <figcaption>제 52회, 2024년 3월 9일 (개정 이후 첫 시험)</figcaption>
 </figure>
 
@@ -26,7 +25,6 @@
 비전공 개발자로서 개발 자격증이 하나도 없었다. **(비전공, 노베이스)**
 
 금융권을 준비하다보니 우대사항으로 SQLP가, 코딩 테스트에 SQL 문제가 출제되기도 한다.
-
 (SQLP를 취득하려면 일단 SQLD가 필요하다.)
 
 ### ✨ 합격 기준
@@ -49,25 +47,19 @@
 
 ### 📍 시험 일정
 
-![시험일정](https://github.com/nerd-animals/na-log/assets/144116866/67d77caf-c976-4835-9aa9-2b8339cccbe3)
-
-2024년 시험 일정
+<figure>
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/67d77caf-c976-4835-9aa9-2b8339cccbe3">
+<figcaption>2024년 시험 일정</figcaption>
+</figure>
 
 한국데이터산업진흥원 주관으로 **연 4회** 시행 (분기에 1회 접수)
 
-<aside>
-🖥️
-◆원서접수 시간 : 접수 시작일 10:00 ~ 접수 마감일 18:00
-
-◆수험표 발행 시간 : 시험일 2주 전(휴일인 경우 전일) 금요일 16시
-
-◆결과발표 시간 : 10:00 (사정에 따라 변동 가능)
-
-◆시험 시작시간 : 10:00
-
-◆사전점수 공개 : 공개시작일 16:00 ~ 공개최종일 18:00
-
-(접수된 재검토 신청은 검토기간을 거쳐 결과발표일에 통보)
+<aside>🖥️◆원서접수 시간 : 접수 시작일 10:00 ~ 접수 마감일 18:00
+    ◆수험표 발행 시간 : 시험일 2주 전(휴일인 경우 전일) 금요일 16시
+    ◆결과발표 시간 : 10:00 (사정에 따라 변동 가능)
+    ◆시험 시작시간 : 10:00
+    ◆사전점수 공개 : 공개시작일 16:00 ~ 공개최종일 18:00
+    (접수된 재검토 신청은 검토기간을 거쳐 결과발표일에 통보)
 </aside>
 
 ### 🗓️ 준비 기간
@@ -75,16 +67,12 @@
 > 제52회 : 2024년 1월 29일(월) ~ 3월 9일(토)
 > 
 - 1주 : 개념정리
-    
     유선배 SQLD 책을 보면서 하루에 1시간 씩 개념정리하면서 감 익히기
-    
     (총 5개 CHAPTER를 하루에 하나씩 개념정리)
     
 - 2주 ~ 3주 : 기출문제
 (시간 없다면 이것만 해도 될듯)
-    
     [https://yunamom.tistory.com/category/IT자격증 공부/SQLD 기출문제](https://yunamom.tistory.com/category/IT%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EA%B3%B5%EB%B6%80/SQLD%20%EA%B8%B0%EC%B6%9C%EB%AC%B8%EC%A0%9C)
-    
     구글에 SQLD 정리본을 공유받아 노랭이 책과 기출 풀면서 틀렸던 내용 옆에 메모
     
 
@@ -92,27 +80,22 @@
 
 네이버 [데이터 전문가 포럼](https://cafe.naver.com/sqlpd) 이라는 카페가 가장 유명해서 정보를 취합했다.
 
-<img src="https://github.com/nerd-animals/na-log/assets/144116866/c38096fc-3a4b-43a6-a4f1-4b119e09bf4d" width="50%" height="50%"/>
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/c38096fc-3a4b-43a6-a4f1-4b119e09bf4d" />
 
 - 유선배 SQLD 책 : 비전공자한테 개념부터 공부하기 좋다고 해서 구매
-    
     개정 내용인 PIVOT/UNPIVOT, 정규표현식에 대한 내용이 없다.
-    
     다행히 개정 첫 시험(52회)에는 출제되지 않았다.
     이 점 참고하여 구매하거나, 구매하더라도 따로 공부하는 것을 추천한다.
     
     [홍쌤의 데이터랩](https://www.youtube.com/@hdatalab)
-    
     해당 유튜브도 많이 보시던데, 나는 몰라서 보진 못했다.
     
     PIVOT/UNPIVOT, 정규표현식에 대한 정보를 찾고싶으면 `SQLD 2과목 PART2. SQL 활용 완벽 정리`를 보면 될 것 같다.
 
-<img src="https://github.com/nerd-animals/na-log/assets/144116866/c525d66d-e24f-4e01-971c-418f5ce02ab4" width="50%" height="50%"/>
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/c525d66d-e24f-4e01-971c-418f5ce02ab4"/>
 
 - 노랭이 : SQL하면 유명한 책
-    
     실제로도 도움이 많이 됐다. 시험과 비슷하거나 조금 더 어려운 수준이다.
-    
     마지막 과목 `III.(SQL 고급활용 및 튜닝)`은 SQLP 과목이라 풀지 않아도 된다.
     
 
@@ -155,15 +138,13 @@
 ### 과목
 
 SQL 최적화 기본 원리가 SQLP로 이동돼서 난이도 자체는 예전에 비해 낮아진 게 아닌가 싶다.
-
 개정 과목인 `PIVOT/UNPIVOT`, 정규 표현식에 대한 내용은 출제되지 않았다.
 
 ---
 
 ## ⭐️ 필수
 
-<aside>
-SQLD 이론 요약 정리 PDF나 유튜브 강의를 통하여 꼭 해당 키워드는 이해 및 암기하자!
+<aside>SQLD 이론 요약 정리 PDF나 유튜브 강의를 통하여 꼭 해당 키워드는 이해 및 암기하자!
 </aside>
 
 ### **1과목 - 데이터 모델링의 이해**
@@ -212,14 +193,7 @@ SQLD 이론 요약 정리 PDF나 유튜브 강의를 통하여 꼭 해당 키워
     | 연산자 | 의미 | 예시 |
     | --- | --- | --- |
     | BETWEEN A AND B | A와 B의 사이(A, B 포함) | where col between 1 and 10 |
-    | LIKE ‘비교 문자열’ | 비교 문자열을 포함
-    ’%’는 문자열을 의미
-    ’_’는 하나의 문자를 의미
-    ’_’ 혹은 ‘%’ 기호가 포함된 문자 검색 시 ESCAPE 지정 | where col like ‘방탄%’
-    where col like ‘%소년단’
-    where col like ‘%탄소년%’
-    where col like ‘방_소%’
-    where col like ‘%#%%’ escape ‘#’ |
+    | LIKE ‘비교 문자열’ | 비교 문자열을 포함<br>`%`는 문자열을 의미<br>`_`는 하나의 문자를 의미<br>`_` 혹은 `%` 기호가 포함된 문자 검색 시 ESCAPE 지정 | where col like ‘방탄%’<br>where col like ‘%소년단’<br>where col like ‘%탄소년%’<br>where col like ‘방_소%’<br>where col like ‘%#%%’ escape ‘#’ |
     | IN (LIST) | LIST 중 하나와 일치 | where col in (1, 3, 5) |
     | IS NULL | NULL 값 | where col is null |
 
@@ -246,6 +220,6 @@ SQLD 이론 요약 정리 PDF나 유튜브 강의를 통하여 꼭 해당 키워
 a:{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"}
 b:{"display":"inline-block"}
 c:{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0}
-0:["S9WT2jqP6_Psk2pfdtmet",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","sqld/sqld-pass-review","c"],{"children":["__PAGE__?{\"slug\":[\"sqld\",\"sqld-pass-review\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","sqld/sqld-pass-review","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"2024년 첫 개정 SQLD 합격 후기"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","SQLD",{"className":"post-tag","children":"SQLD"}],["$","div","비전공자",{"className":"post-tag","children":"비전공자"}],["$","div","노베이스",{"className":"post-tag","children":"노베이스"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Sun, April 28, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
+0:["LAyoEmRpJv7i73g_HZw2-",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","sqld/sqld-pass-review","c"],{"children":["__PAGE__?{\"slug\":[\"sqld\",\"sqld-pass-review\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","sqld/sqld-pass-review","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"2024년 첫 개정 SQLD 합격 후기"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","SQLD",{"className":"post-tag","children":"SQLD"}],["$","div","비전공자",{"className":"post-tag","children":"비전공자"}],["$","div","노베이스",{"className":"post-tag","children":"노베이스"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Sun, April 28, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
 d:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"2024년 첫 개정 SQLD 합격 후기"}],["$","meta","3",{"name":"description","content":"2024년 첫 개정 SQLD 비전공자 노베이스 3주 합격, 어떻게 공부했는지 알아보자!"}],["$","meta","4",{"property":"og:title","content":"2024년 첫 개정 SQLD 합격 후기"}],["$","meta","5",{"property":"og:description","content":"2024년 첫 개정 SQLD 비전공자 노베이스 3주 합격, 어떻게 공부했는지 알아보자!"}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"2024년 첫 개정 SQLD 합격 후기"}],["$","meta","8",{"name":"twitter:description","content":"2024년 첫 개정 SQLD 비전공자 노베이스 3주 합격, 어떻게 공부했는지 알아보자!"}],["$","link","9",{"rel":"icon","href":"/na-log/favicon.ico","type":"image/x-icon","sizes":"64x64"}]]
 1:null

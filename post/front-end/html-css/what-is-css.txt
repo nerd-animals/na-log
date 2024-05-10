@@ -3,12 +3,10 @@
 5:I[5613,[],""]
 7:I[31778,[],""]
 8:I[25250,["5250","static/chunks/5250-f902508d1dda8599.js","7894","static/chunks/app/(contents)/layout-f321296cefda825a.js"],""]
-3:T1fe4,
+3:T1fcf,
 ## 개요
 
-<aside>
-📝 프론트엔드를 한다면 html과 더불어 같이 보게 되는 css, 이 css란 무엇일까요?
-
+<aside>📝 프론트엔드를 한다면 html과 더불어 같이 보게 되는 css, 이 css란 무엇일까요?
 </aside>
 
 ---
@@ -35,7 +33,7 @@ HTML이 정의한 친구들에게 요소의 색상, 크기, 레이아웃, 폰트
 
 **CSS**는 **선택자**와 **선언 구역**으로 구성된다.
 
-- *선택자(Selector)**는 스타일을 적용할 HTML 요소를 선택하는 역할을 맡고 있다.
+- 선택자(Selector)는 스타일을 적용할 HTML 요소를 선택하는 역할을 맡고 있다.
 
 요소를 선택한 후, 중괄호로 선언 구역을 설정한 후, 그 안에 스타일을 지정해준다.
 
@@ -46,18 +44,18 @@ HTML이 정의한 친구들에게 요소의 색상, 크기, 레이아웃, 폰트
 ## Cascading
 
 CSS에서 가장 앞의 단어인 **Cascading**은, 폭포, 위에서 아래로 쏟아지는 이라는 뜻을 가진 단어이다.
-
 말 그대로 **위에서 아래로 적용되는 스타일 시트**라는 건데… **그래서?**
 
 CSS을 작업하다보면, 여러 스타일 규칙이 한 요소에 적용되기도 하고, 적용될 수도 있다.
-
 그럴 때 **우선순위**가 필요한데, 그 우선순위를 결정하는 방식을 **CSS cascading**이라고 하는 것이다.
 
 중요한 스타일 적용 규칙이기 때문에 제대로 이해하지 못하고 남발한다면, 위의 짤방처럼 웃픈 일이 발생된다.
 
-![X발](https://github.com/nerd-animals/na-log/assets/144116866/bc0d5b72-76df-4e6c-ab62-30ca32e0f6d6)
+<figure>
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/bc0d5b72-76df-4e6c-ab62-30ca32e0f6d6"/>
+<figcaption>(아는 사람 얘기다.)</figcaption>
+</figure>
 
-~~(아는 사람 얘기다.)~~
 
 CSS Cascading은 다음 3가지에 의해 결정된다.
 
@@ -70,7 +68,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 ### 중요도
 
 1. HTML의 head 요소 안의 style
-    
     이 부분에 정의된 스타일은 해당 HTML 파일 내의 요소에 직접적으로 적용된다.
     
     ```html
@@ -85,7 +82,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 2. HTML의 head 요소 안의 style 내부의 @import 문
-    
     다른 CSS 파일을 가져와서 스타일을 정의할 수 있는데, 렌더링 성능에 영향을 줄 수 있기 때문에 가급적 사용을 피하는 것이 좋다.
     
     ```html
@@ -98,7 +94,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 3. `<link>`로 연결된 CSS 파일
-    
     HTML 문서에 외부 CSS 파일을 연결하는 표준 방법이다. 가장 많이 사용하는 방법이 아닐까 싶다.
     
     ```html
@@ -109,11 +104,9 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 4. `<link>`로 연결된 CSS 파일 내부의 @import 문
-    
     외부 css 파일 내에서 다른 css 파일을 가져오는 것이므로 그닥 좋지 못하다.
     
 5. 브라우저 디폴트 스타일 시트
-    
     자체적으로 브라우저가 가지고 있는 기본적인 스타일 시트를 뜻한다.
     
     ```css
@@ -133,11 +126,9 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 ![clarity](https://github.com/nerd-animals/na-log/assets/144116866/cf6ec22e-38fd-4c7b-8c65-c6be6990115c)
 
 ### 명시도
-
 명시도는 CSS 규칙이 어떤 순서로 우선권을 갖는지를 결정하는 방식이다. 이름 옆에 쓰여진 것은 명시도 점수다.
 
 1. !important
-    
     이름부터 중요하다…! 근데, 쓸 때 정말 잘 생각해서 써야한다. 강제로 이 스타일을 우선시 해!의 느낌이라…
     
     ```css
@@ -148,7 +139,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 2. inline 스타일 : **1000점**
-    
     important는 예외라고 생각하고, 이 inline 스타일이 가장 높은 우선순위라고 생각하면 된다.
     
     ```css
@@ -157,7 +147,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 3. id 선택자 : **100점**
-    
     html 태그 내의 id는 `#`으로 선택한다.
     
     ```css
@@ -168,7 +157,6 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
     ```
     
 4. class / 가상 선택자 : **10점**
-    
     html 태그 내의 class는 `.`으로 선택하고, 가상 선택자는 `:`으로 선택한다.
     
 
@@ -300,7 +288,7 @@ CSS Cascading은 다음 3가지에 의해 결정된다.
 
 아래 코드로는 당연히 blue가 적용될 것이다.
 
-<img src="https://github.com/nerd-animals/na-log/assets/144116866/48aa0881-66e5-466e-a9e6-a8667d18d41a" alt="specificity" width="80%" />
+<img src="https://github.com/nerd-animals/na-log/assets/144116866/48aa0881-66e5-466e-a9e6-a8667d18d41a" alt="specificity" />
 
 Cascading 규칙이 어렵고, 직관적이지 못하다면 <a class="external-link" target="_blank" href="[https://specificity.keegan.st](https://specificity.keegan.st/)">해당 사이트</a>를 이용해보자.
 
@@ -311,6 +299,6 @@ Cascading 규칙이 어렵고, 직관적이지 못하다면 <a class="external-l
 a:{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"}
 b:{"display":"inline-block"}
 c:{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0}
-0:["S9WT2jqP6_Psk2pfdtmet",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","front-end/html-css/what-is-css","c"],{"children":["__PAGE__?{\"slug\":[\"front-end\",\"html-css\",\"what-is-css\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","front-end/html-css/what-is-css","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"[프론트엔드 기초] css란 무엇인가?"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","front-end",{"className":"post-tag","children":"front-end"}],["$","div","css",{"className":"post-tag","children":"css"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Thu, March 14, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
+0:["LAyoEmRpJv7i73g_HZw2-",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","front-end/html-css/what-is-css","c"],{"children":["__PAGE__?{\"slug\":[\"front-end\",\"html-css\",\"what-is-css\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","front-end/html-css/what-is-css","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"[프론트엔드 기초] css란 무엇인가?"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","front-end",{"className":"post-tag","children":"front-end"}],["$","div","css",{"className":"post-tag","children":"css"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Thu, March 14, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
 d:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"[프론트엔드 기초] css란 무엇인가?"}],["$","meta","3",{"name":"description","content":"프론트엔드를 한다면 html과 더불어 같이 보게 되는 css, 이 css란 무엇일까요?"}],["$","meta","4",{"property":"og:title","content":"[프론트엔드 기초] css란 무엇인가?"}],["$","meta","5",{"property":"og:description","content":"프론트엔드를 한다면 html과 더불어 같이 보게 되는 css, 이 css란 무엇일까요?"}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"[프론트엔드 기초] css란 무엇인가?"}],["$","meta","8",{"name":"twitter:description","content":"프론트엔드를 한다면 html과 더불어 같이 보게 되는 css, 이 css란 무엇일까요?"}],["$","link","9",{"rel":"icon","href":"/na-log/favicon.ico","type":"image/x-icon","sizes":"64x64"}]]
 1:null
