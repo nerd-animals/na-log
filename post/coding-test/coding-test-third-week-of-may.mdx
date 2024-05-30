@@ -1,0 +1,220 @@
+---
+title: '5월 셋째주 코테 풀이 모음집'
+summary: '5월 셋째주 코테 풀이!'
+author: 'otter'
+tags: ['coding test', 'javascript']
+date: 2024-05-30
+---
+    
+<details open>
+<summary>5월 둘째주</summary>
+<details>
+<summary>2741번: N 찍기</summary>
+
+[](https://www.acmicpc.net/problem/2741)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 128 MB | 275114 | 153978 | 131184 | 57.168% |
+
+**✦문제**
+
+자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+
+**✦입력**
+
+첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.
+
+✦**출력**
+
+첫째 줄부터 N번째 줄 까지 차례대로 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    5
+    ```
+    
+- 출력
+    
+    ```
+    1
+    2
+    3
+    4
+    5
+    ```
+    
+
+**✦알고리즘 분류**
+
+- 구현
+
+---
+
+## 📄 **문제 분석 요약**
+
+너무 짧아서 요약할 것이 없다. 문제 내용이 곧 요약
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+for문 돌면 되지 않을까?
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim();
+
+for (let i = 1; i<=input; i++) {
+    console.log(i);
+}
+
+```
+
+### 틀린 이유
+
+시간 초과, 당황
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim();
+
+let answer = '';
+
+for (let i = 1; i<=input; i++) {
+    answer += i + '\n';
+}
+
+console.log(answer);
+
+```
+
+`console.log` 는 I/O 연산인데, 반복문 안에서 여러 번 호출될 때, 각 호출마다 콘솔에 접근하고 데이터를 출력하는 시간이 많이 소요된다고 한다.
+
+N 최대 99,999니까, 아마 이 부분에서 시간 초과가 뜬 것 같다.
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+`answer += i + '\n';`
+
+줄 바꿈을 빈 문자열에 추가하는 것도 알아두자
+</details>
+
+<details>
+<summary>2920번: 음계</summary>
+
+[](https://www.acmicpc.net/problem/2920)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 128 MB | 104402 | 58334 | 50787 | 57.110% |
+
+**✦문제**
+
+다장조는 c d e f g a b C, 총 8개 음으로 이루어져있다. 이 문제에서 8개 음은 다음과 같이 숫자로 바꾸어 표현한다. c는 1로, d는 2로, ..., C를 8로 바꾼다.
+
+1부터 8까지 차례대로 연주한다면 ascending, 8부터 1까지 차례대로 연주한다면 descending, 둘 다 아니라면 mixed 이다.
+
+연주한 순서가 주어졌을 때, 이것이 ascending인지, descending인지, 아니면 mixed인지 판별하는 프로그램을 작성하시오.
+
+**✦입력**
+
+첫째 줄에 8개 숫자가 주어진다. 이 숫자는 문제 설명에서 설명한 음이며, 1부터 8까지 숫자가 한 번씩 등장한다.
+
+✦**출력**
+
+첫째 줄에 ascending, descending, mixed 중 하나를 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    #TC 1
+    1 2 3 4 5 6 7 8
+    
+    #TC 2
+    8 7 6 5 4 3 2 1
+    
+    #TC 3
+    8 1 7 2 6 3 5 4
+    ```
+    
+- 출력
+    
+    ```
+    #TC 1
+    ascending
+    
+    #TC 2
+    descending
+    
+    #TC 3
+    mixed
+    ```
+    
+
+**✦알고리즘 분류**
+
+- 구현
+
+---
+
+## 📄 **문제 분석 요약**
+
+오름차순으로 연주하면 ascending, 내림차순으로 연주하면 descending, 섞이면 mixed
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+1-8밖에 없어서 [1, 2, 3, 4 … , 8]이면 오름차순, 반대면 내림차순, 그 외에는 mixed로 구현할까 했는데, 문제의 취지와 맞지 않는 것 같아 비교하는 형태로 구현하였다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split(" ").map(Number);
+
+let cnt = 0;
+
+for (let i = 0; i < 7; i ++) {
+    if (input[i] < input[i+1]) {
+        cnt++;
+    }
+}
+
+const result = {
+    0: 'descending',
+    7: 'ascending',
+}[cnt];
+
+console.log(result || 'mixed');
+```
+
+처음에는 now라는 변수를 둬서 array를 순차적으로 탐색하면서 now와 i를 비교하는 방식으로 하려고 했는데, cnt(count)라는 변수로 다음 숫자가 클 때마다 +되도록 하였다.
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+`const result = { 0: 'descending', 7: 'ascending', }[cnt];` 같이 객체에서 키로 값을 조회하기 위해 대괄호 표기법을 활용하는 방법 또한 좋은 것 같다.
+
+`result || mixed` 처럼 result의 값의 존재 유무에 따라 반환하는 것도 간편했다. 알아두면 좋을 것 같다.
+</details>
+<details>
+<summary>2579번: 계단 오르기</summary>
+</details>
+</details>
