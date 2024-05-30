@@ -1,0 +1,2011 @@
+---
+title: '5월 둘째주 코테 풀이 모음집'
+summary: '5월 둘째주 코테 풀이!'
+author: 'otter'
+tags: ['coding test', 'javascript']
+date: 2024-05-30
+---
+    
+<details open>
+<summary>5월 둘째주</summary>
+
+<details>
+<summary>1992번: 쿼드트리</summary>
+
+[](https://www.acmicpc.net/problem/1992)
+
+**✦문제**
+
+흑백 영상을 압축하여 표현하는 데이터 구조로 쿼드 트리(Quad Tree)라는 방법이 있다. 흰 점을 나타내는 0과 검은 점을 나타내는 1로만 이루어진 영상(2차원 배열)에서 같은 숫자의 점들이 한 곳에 많이 몰려있으면, 쿼드 트리에서는 이를 압축하여 간단히 표현할 수 있다.
+
+주어진 영상이 모두 0으로만 되어 있으면 압축 결과는 "0"이 되고, 모두 1로만 되어 있으면 압축 결과는 "1"이 된다. 만약 0과 1이 섞여 있으면 전체를 한 번에 나타내지를 못하고, 왼쪽 위, 오른쪽 위, 왼쪽 아래, 오른쪽 아래, 이렇게 4개의 영상으로 나누어 압축하게 되며, 이 4개의 영역을 압축한 결과를 차례대로 괄호 안에 묶어서 표현한다
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/a5c8a3a7-b80f-472f-ae2f-9089215c3436)
+
+위 그림에서 왼쪽의 영상은 오른쪽의 배열과 같이 숫자로 주어지며, 이 영상을 쿼드 트리 구조를 이용하여 압축하면 "`(0(0011)(0(0111)01)1)`"로 표현된다. N ×N 크기의 영상이 주어질 때, 이 영상을 압축한 결과를 출력하는 프로그램을 작성하시오.
+
+
+**✦입력**
+
+첫째 줄에는 영상의 크기를 나타내는 숫자 N 이 주어진다. N 은 언제나 2의 제곱수로 주어지며, 1 ≤ N ≤ 64의 범위를 가진다. 두 번째 줄부터는 길이 N의 문자열이 N개 들어온다. 각 문자열은 0 또는 1의 숫자로 이루어져 있으며, 영상의 각 점들을 나타낸다.
+
+✦**출력**
+
+영상을 압축한 결과를 출력한다.
+
+**✦시간 및 메모리 제약**
+
+| 시간 제한 | 메모리 제한 |
+| --- | --- |
+| 2초 | 128MB |
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    8
+    11110000
+    11110000
+    00011100
+    00011100
+    11110000
+    11110000
+    11110011
+    11110011
+    ```
+    
+- 출력
+    
+    ```
+    ((110(0101))(0010)1(0001))
+    ```
+    
+
+**✦알고리즘 분류**
+
+- 분할 정복
+- 재귀
+
+---
+
+## 📄 **문제 분석 요약**
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/b2edcad3-758c-4d32-a430-7b48b3d9ab93)
+
+0과 1로 섞여있으면 4개의 면으로 분할하여 각각의 압축된 결과를 내야한다.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+어떻게 풀어야하는 지는 알았으나, stack으로 해야하나… 뭘로 해야하나 싶다가 못 짜겠어서 풀이를 찾아봤다.
+
+재귀 함수를 이용한다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const n = Number(input[0]);
+const nums = input.slice(1).map((v) => v.split("").map(Number));
+
+const quadTree = [];
+
+const getQuadTree = (n, x, y) => {
+    // 전체 합
+    let total = 0;
+    
+    // 합 구하기
+    for (let row = 0; row < n; row++) {
+        for (let col = 0; col < n; col++) {
+            total += nums[y + col][x + row];
+        }
+    }
+
+    // 전체 합이 0이면 0
+    if (total === 0) quadTree.push(0);
+    // 전체 합이 n * n과 같으면(다 1일 때) 1
+    else if (total === n * n) quadTree.push(1);
+    else {
+        // n을 1/2로 쪼개서 보기
+        const next = n / 2;
+        // 나누어진다면 괄호 열기
+        quadTree.push("(");
+        // 4면 하나하나씩 보기
+        getQuadTree(next, x, y);
+        getQuadTree(next, x + next, y);
+        getQuadTree(next, x, y + next);
+        getQuadTree(next, x + next, y + next);
+        // 해당 4면의 결과값을 다 봤으면 괄호 닫기
+        quadTree.push(")");
+    }
+}
+
+getQuadTree(n, 0, 0);
+console.log(quadTree.join(""));
+```
+
+## 🕖 시간복잡도
+
+시간 복잡도는 이중 for문으로 O(n^2),
+
+재귀함수는 조금 더 공부가 필요할 것 같다.(챗지피티 활용)
+
+---
+
+재귀함수는 각 단계에서 부분 행렬을 더 분할해야하는 경우, 네 개의 사분면으로 나누고 각 사분면에 대해 재귀적으로 처리한다. (n/2 * n/2의 부분 행렬 처리)
+
+각 단계에서 부분 행렬의 요소 합을 계산하는 데는 O(n^2) 시간이 필요하다.
+
+행렬의 크기가 매 단계에서 절반으로 줄어들기 때문에, 재귀의 깊이는 log_2n이다.
+
+## 💡 느낀 점 or 기억할 정보
+
+재귀함수 말고는 풀 수 있는 방법이 없을까… 고민해보자
+
+</details>
+
+<details>
+<summary>7576번: 토마토</summary>
+
+[](https://www.acmicpc.net/problem/7576)
+
+**✦문제**
+
+철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자 모양 상자의 칸에 하나씩 넣어서 창고에 보관한다.
+
+창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토의 인접한 곳은 왼쪽, 오른쪽, 앞, 뒤 네 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다. 철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지, 그 최소 일수를 알고 싶어 한다.
+
+토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.
+
+**✦입력**
+
+첫 줄에는 상자의 크기를 나타내는 두 정수 M,N이 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M,N ≤ 1,000 이다. 둘째 줄부터는 하나의 상자에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 상자에 담긴 토마토의 정보가 주어진다. 하나의 줄에는 상자 가로줄에 들어있는 토마토의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다.
+
+토마토가 하나 이상 있는 경우만 입력으로 주어진다.
+
+✦**출력**
+
+여러분은 토마토가 모두 익을 때까지의 최소 날짜를 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.
+
+**✦시간 및 메모리 제약**
+
+| 시간 제한 | 메모리 제한 |
+| --- | --- |
+| 1초 | 256MB |
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    test1
+    6 4
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 1
+    
+    test2
+    6 4
+    0 -1 0 0 0 0
+    -1 0 0 0 0 0
+    0 0 0 0 0 0
+    0 0 0 0 0 1
+    
+    test3
+    6 4
+    1 -1 0 0 0 0
+    0 -1 0 0 0 0
+    0 0 0 0 -1 0
+    0 0 0 0 -1 1
+    
+    test4
+    5 5
+    -1 1 0 0 0
+    0 -1 -1 -1 0
+    0 -1 -1 -1 0
+    0 -1 -1 -1 0
+    0 0 0 0 0
+    
+    test5
+    2 2
+    1 -1
+    -1 1
+    ```
+    
+- 출력
+    
+    ```
+    test1
+    8
+    
+    test2
+    -1
+    
+    test3
+    6
+    
+    test4
+    14
+    
+    test5
+    0
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [그래프 이론](https://www.acmicpc.net/problem/tag/7)
+- [그래프 탐색](https://www.acmicpc.net/problem/tag/11)
+- [너비 우선 탐색](https://www.acmicpc.net/problem/tag/126)
+
+---
+
+## 📄 **문제 분석 요약**
+
+보관 후 하루가 지나면 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익을 수 있다.
+
+토마토를 창고에 보관하는 격자모양의 상자가 있으며 각각의 칸에는 익은 토마토들(1)과 익지 않은 토마토들(0)이 있다. 일부의 칸에는 토마토가 들어가있지 않다(-1).
+
+토마토가 모두 익을 때까지의 최소 날짜를 출력해야 한다.
+만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지 못하는 상황이면 -1을 출력해야 한다.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+BFS를 이용한 문제다. 출발점이 두 개 이상인 경우는 처음 봐서 아래 유튜브 및 블로그를 참고했다.
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/eae9a38b-a02d-481a-a4e4-2c741eecde95)
+
+모든 시작점을 큐에 넣고 BFS를 이용하면 된다. 초록색은 익은 토마토, 파란색은 익지 않은 토마토, 빨간색은 빈 칸이다.
+
+숫자는 day라고 생각할 수도 있지만, 거리라고 생각해도 똑같다.
+
+### 모든 시작점을 큐에 넣고 돌리면 왜 되는 것일까?
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/3a1fe839-7195-4e73-a024-0213fe62c253)
+
+먼저 익은 토마토, 즉 거리가 0인 토마토를 큐에 모두 넣는다.
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/089d1e9a-0e68-4527-a34e-f794a26a149f)
+
+이 때 index 0의 익은 토마토를 통해 큐에 추가되는 토마토는 index 0 토마토로부터 거리가 1인 이웃한 익지 않은 토마토들이다.
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/409c36b9-a4c7-481d-ae2d-56200a6d3b25)
+
+그 다음 index 1의 익은 토마토를 통해 추가되는 토마토들도 index 1 토마토로부터 거리가 1인 이웃한 익지 않은 토마토들이다.
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/e11459d0-3302-4904-b85d-c97f7f95fceb)
+
+똑같이 index 3의 토마토는 이제 익었기 때문에, 그 익은 토마토로부터 거리가 1인 이웃한 익지 않은 토마토(거리가 2)들도 큐에 들어온다.
+
+![image](https://github.com/nerd-animals/na-log/assets/144116866/7f0b4a40-be9e-4173-96b3-3800ba6efc2a)
+
+거리가 2인 토마토도 마찬가지로 이웃한 익지 않은 토마토(거리가 3)들도 큐에 들어오게 된다.
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const [row, col] = input[0].split(" ").map(Number);
+const graph = input.slice(1).map((v) => v.split(" ").map(Number));
+const dx = [1, 0, -1, 0]
+const dy = [0, 1, 0, -1]
+
+function getTomatoDay(row, col, graph) {
+    const queue = [];
+    // 거리, 기본값은 0이다. (출발지점의 거리가 0이기 때문)
+    const dist = [...Array(col)].map(() => Array(row).fill(0));
+	
+		
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
+		        // '1'이면 큐에 넣는다. (토마토 익었으면)
+            if (graph[i][j] === 1) {
+                queue.push([i, j]);
+            // '0'이면 거리를 -1로 설정한다. (토마토 안 익었으면)
+            } else if (graph[i][j] === 0) {
+                dist[i][j] = -1;
+            }
+        }
+    }
+		
+		// 큐가 빌 때까지
+    while (queue.length > 0) {
+		    // x, y값을 큐에서 꺼낸다.
+        const [x, y] = queue.shift();
+        for (let k = 0; k < 4; k++) {
+            const nx = x + dx[k];
+            const ny = y + dy[k];
+            
+            // x, y가 창고 밖이라면 넘어가기
+            if (nx < 0 || ny < 0 || nx >= col || ny >= row) continue;
+            // 익은 토마토, 빈칸 일 시 넘어가기
+            if (dist[nx][ny] >= 0) continue;
+
+						// 익지 않은 토마토면 거리(일 수) +1
+            dist[nx][ny] = dist[x][y] + 1;
+						
+						// 익었으니까 큐에 넣기
+            queue.push([nx, ny]);
+        }
+        
+    }
+
+    let day = 0;
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
+		        // 안 익은 토마토가 있으면 -1
+            if (dist[i][j] === -1) return -1;
+            // 다 익었으면 최대 거리(일 수)인 토마토 거리 출력
+            day = Math.max(day, dist[i][j]);
+        }
+    }
+    return day;
+}
+
+console.log(getTomatoDay(row, col, graph));
+```
+
+### 틀린 이유
+
+시간 초과.
+
+`queue.shift()`는 배열 첫 번째 요소를 제거하고 나머지 요소를 앞으로 이동시키기 때문에 $O(N)$이다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const [row, col] = input[0].split(" ").map(Number);
+const graph = input.slice(1).map((v) => v.split(" ").map(Number));
+const dx = [1, 0, -1, 0]
+const dy = [0, 1, 0, -1]
+
+function getTomatoDay(row, col, graph) {
+    const queue = [];
+    // 거리, 기본값은 0이다. (출발지점의 거리가 0이기 때문)
+    const dist = [...Array(col)].map(() => Array(row).fill(0));
+	
+		
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
+		        // '1'이면 큐에 넣는다. (토마토 익었으면)
+            if (graph[i][j] === 1) {
+                queue.push([i, j]);
+            // '0'이면 거리를 -1로 설정한다. (토마토 안 익었으면)
+            } else if (graph[i][j] === 0) {
+                dist[i][j] = -1;
+            }
+        }
+    }
+    
+    // head 변수로 포인터 개념으로 index를 하나씩 추적
+    let head = 0;
+    while (queue.length > head) {
+        const [x, y] = queue[head];
+        head++;
+        for (let k = 0; k < 4; k++) {
+            const nx = x + dx[k];
+            const ny = y + dy[k];
+            
+            // x, y가 창고 밖이라면 넘어가기
+            if (nx < 0 || ny < 0 || nx >= col || ny >= row) continue;
+            // 익은 토마토, 빈칸 일 시 넘어가기
+            if (dist[nx][ny] >= 0) continue;
+
+						// 익지 않은 토마토면 거리(일 수) +1
+            dist[nx][ny] = dist[x][y] + 1;
+						
+						// 익었으니까 큐에 넣기
+            queue.push([nx, ny]);
+        }
+        
+    }
+
+    let day = 0;
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
+		        // 안 익은 토마토가 있으면 -1
+            if (dist[i][j] === -1) return -1;
+            // 다 익었으면 최대 거리(일 수)인 토마토 거리 출력
+            day = Math.max(day, dist[i][j]);
+        }
+    }
+    return day;
+}
+
+console.log(getTomatoDay(row, col, graph));
+```
+
+`queue[head]`는 `head++`로 인덱스를 옮겨주기만 하기 때문에 $O(1)$이다.
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+`new Array(col).fill(new Array(row).fill(0));` : 각 행이 모두 같은 배열을 참조하게 된다.
+
+`[...Array(col)].map(() => Array(row).fill(0));` : 각 행이 모두 각각 다른 배열을 참조하게 된다.
+
+</details>
+
+<details>
+<summary>20922번: 겹치는 건 싫어</summary>
+
+[](https://www.acmicpc.net/problem/20922)
+
+**✦문제**
+
+홍대병에 걸린 도현이는 겹치는 것을 매우 싫어한다. 특히 수열에서 같은 원소가 여러 개 들어 있는 수열을 싫어한다. 도현이를 위해 같은 원소가 $𝐾$개 이하로 들어 있는 최장 연속 부분 수열의 길이를 구하려고 한다.
+
+$100,000$이하의 양의 정수로 이루어진 길이가 $𝑁$인 수열이 주어진다.  이 수열에서 같은 정수를 $𝐾$개 이하로 포함한 최장 연속 부분 수열의 길이를 구하는 프로그램을 작성해보자.
+
+**✦입력**
+
+첫째 줄에 정수 $𝑁$($1 \le N \le 200\,000$)과 $𝐾$ ($1 \le K \le 100$)가 주어진다.
+
+둘째 줄에는 $a_1, a_2, ... a_n$이 주어진다 ($1 \le a_i \le 100\,000$)
+
+✦**출력**
+
+조건을 만족하는 최장 연속 부분 수열의 길이를 출력한다.
+
+**✦시간 및 메모리 제약**
+
+| 시간 제한 | 메모리 제한 |
+| --- | --- |
+| 1초 | 1024MB |
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    test case1
+    9 2
+    3 2 5 5 6 4 4 5 7
+    
+    test case2
+    10 1
+    1 2 3 4 5 6 6 7 8 9
+    ```
+    
+- 출력
+    
+    ```
+    test case1
+    7
+    
+    test case2
+    6
+    ```
+    
+
+**✦노트**
+
+연속 부분 수열이란 그 수열의 원소를 하나 이상 연속하여 선택한 부분 수열을 말한다.
+
+𝑎=3,9,7,6,5일 때 9,7,6는 연속 부분 수열이고 3,6,5는 그렇지 않다.
+
+**✦알고리즘 분류**
+
+- 투 포인터
+
+---
+
+## 📄 **문제 분석 요약**
+
+연속 부분 수열에서 같은 원소가 K개 이하로 들어가있는 최장 연속 부분 수열의 길이를 구해야한다.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+투 포인터를 이용했다.
+
+start, end 포인터를 이용해서 end 포인터에 배열의 숫자를 확인하며
+
+1. k개 이하면, end 포인터의 숫자 카운트를 + 해주고, end 포인터를 뒤로 옮긴다.
+2. k개 이상이면, start 포인터의 숫자 카운트를 - 해주고, start 포인터를 뒤로 옮긴다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const [n, k] = input[0].split(" ").map(Number);
+const seq = input[1].split(" ").map(Number);
+// 최장 부분수열의 길이가 100,000만 이므로 그만큼의 숫자 count 배열 만들기
+const count = Array.from({length : 100001}, () => 0);
+
+// 최장 연속 부분 수열의 길이 저장
+let maxLength = 0;
+// 포인터 index
+let start = 0;
+let end = 0;
+
+// end 포인터가 전체 수열의 길이보다 작을 때까지 탐색
+while (end < n) {
+    // end 포인터에 배열의 숫자가 k개 이하면, end 포인터의 숫자 count 늘려주고, end 포인터를 뒤로 옮긴다.
+    if (count[seq[end]] < k) {
+        count[seq[end]] ++;
+        end ++;
+    // k개 이상이면, start 포인터의 숫자 count 줄여주고, start 포인터를 뒤로 옮기기
+    } else {
+        count[seq[start]] --;
+        start ++;
+    }
+
+    // 매번 최대 길이 갱신
+    maxLength = Math.max(maxLength, end - start);
+}
+
+console.log(maxLength)
+```
+
+## 🕖 시간복잡도
+
+start와 end 포인터가 수열을 탐색하는 동안 n번 이동한다.
+
+⇒ $O(N+N)$ = $O(N)$
+
+## 💡 느낀 점 or 기억할 정보
+
+순서가 조금 헷갈린다. 많이 풀어보자!
+</details>
+
+<details>
+<summary>12865번: 평범한 배낭</summary>
+
+[](https://www.acmicpc.net/problem/12865)
+
+**✦문제**
+
+이 문제는 아주 평범한 배낭에 관한 문제이다.
+
+한 달 후면 국가의 부름을 받게 되는 준서는 여행을 가려고 한다. 세상과의 단절을 슬퍼하며 최대한 즐기기 위한 여행이기 때문에, 가지고 다닐 배낭 또한 최대한 가치 있게 싸려고 한다.
+
+준서가 여행에 필요하다고 생각하는 N개의 물건이 있다. 각 물건은 무게 W와 가치 V를 가지는데, 해당 물건을 배낭에 넣어서 가면 준서가 V만큼 즐길 수 있다. 아직 행군을 해본 적이 없는 준서는 최대 K만큼의 무게만을 넣을 수 있는 배낭만 들고 다닐 수 있다. 준서가 최대한 즐거운 여행을 하기 위해 배낭에 넣을 수 있는 물건들의 가치의 최댓값을 알려주자.
+
+**✦입력**
+
+첫 줄에 물품의 수 N(1 ≤ N ≤ 100)과 준서가 버틸 수 있는 무게 K(1 ≤ K ≤ 100,000)가 주어진다. 두 번째 줄부터 N개의 줄에 거쳐 각 물건의 무게 W(1 ≤ W ≤ 100,000)와 해당 물건의 가치 V(0 ≤ V ≤ 1,000)가 주어진다.
+
+입력으로 주어지는 모든 수는 정수이다.
+
+✦**출력**
+
+한 줄에 배낭에 넣을 수 있는 물건들의 가치합의 최댓값을 출력한다.
+
+**✦시간 및 메모리 제약**
+
+| 시간 제한 | 메모리 제한 |
+| --- | --- |
+| 2초 | 512MB |
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    4 7
+    6 13
+    4 8
+    3 6
+    5 12
+    ```
+    
+- 출력
+    
+    ```
+    14
+    ```
+    
+
+**✦알고리즘 분류**
+
+- 다익스트라
+
+---
+
+## 📄 **문제 분석 요약**
+
+배낭에 N개의 물건을 최대 K만큼의 무게만큼 넣을 수 있는데, 물건은 각각 무게 W와 가치 V를 가진다.
+
+배낭에 넣을 수 있는 물건들의 가치의 최댓값은 어떻게 구할까
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/dff03dc2-9b9a-4fc9-b26b-1f1c79b6a03d/Untitled.png)
+
+DP를 이용하는 것이다. DP는 아직 많이 다뤄보지 않아서 접근하기가 어려웠다.
+
+1. 현재 물건을 담을 수 있는 경우(현재 가방의 최대 무게가 해당 물건 무게보다 큰 경우)
+    
+    이전 물건의 가치 + 현재 물건의 가치, 이전 물건에서 같은 무게인 것의 가치 중 최댓값 갱신
+    
+2. 현재 물건을 담을 수 없는 경우(현재 가방의 최대 무게가 해당 물건 무게보다 작은 경우)
+    
+    이전 물건의 가치
+    
+
+## 💡 정답 코드
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const [n, k] = input[0].split(" ").map(Number);
+const stuffs = input.slice(1).map(stuff => stuff.split(" ").map(Number));
+// n = 1일때, dp[i -1][j]가 존재해야하므로
+const dp = Array.from({length : n + 1}, () => Array(k + 1).fill(0));
+
+for (let i = 1; i <= n; i ++) {
+    const [weight, value] = stuffs[i - 1];
+    for (let capacity = 0; capacity <= k; capacity ++) {
+		    // 현재 가방의 최대 무게가 해당 물건 무게보다 큰 경우 (현재 물건을 담을 수 있는 경우)
+        if (capacity >= weight) {
+		        // 이전 물건의 value + 현재 물건의 value와 이전 물건에서 같은 무게인 것의 가치 중 최댓값을 저장
+            dp[i][capacity] = Math.max(dp[i - 1][capacity - weight] + value, dp[i - 1][capacity]);
+          // 현재 가방의 최대 무게가 해당 물건 무게보다 작은 경우 (현재 물건을 담을 수 없는 경우)
+        } else {
+		        // [이전 물건][같은 무게] = 이전 물건의 가치 입력
+            dp[i][capacity] = dp[i - 1][capacity];
+        }
+    }
+}
+console.log(dp[n][k])
+```
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+DP… 어렵다.
+
+점화식을 구하면 끝인데, 점화식을 도출하는 것이 어렵다.
+
+</details>
+<details>
+<summary>10026번: 적록색약</summary>
+
+[](https://www.acmicpc.net/problem/10026)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 128 MB | 68484 | 39505 | 29876 | 56.491% |
+
+**✦문제**
+
+적록색약은 빨간색과 초록색의 차이를 거의 느끼지 못한다. 따라서, 적록색약인 사람이 보는 그림은 아닌 사람이 보는 그림과는 좀 다를 수 있다.
+
+크기가 N×N인 그리드의 각 칸에 R(빨강), G(초록), B(파랑) 중 하나를 색칠한 그림이 있다. 그림은 몇 개의 구역으로 나뉘어져 있는데, 구역은 같은 색으로 이루어져 있다. 또, 같은 색상이 상하좌우로 인접해 있는 경우에 두 글자는 같은 구역에 속한다. (색상의 차이를 거의 느끼지 못하는 경우도 같은 색상이라 한다)
+
+예를 들어, 그림이 아래와 같은 경우에
+
+```
+RRRBB
+GGBBB
+BBBRR
+BBRRR
+RRRRR
+```
+
+적록색약이 아닌 사람이 봤을 때 구역의 수는 총 4개이다. (빨강 2, 파랑 1, 초록 1) 하지만, 적록색약인 사람은 구역을 3개 볼 수 있다. (빨강-초록 2, 파랑 1)
+
+그림이 입력으로 주어졌을 때, 적록색약인 사람이 봤을 때와 아닌 사람이 봤을 때 구역의 수를 구하는 프로그램을 작성하시오.
+
+**✦입력**
+
+첫째 줄에 N이 주어진다. (1 ≤ N ≤ 100)
+
+둘째 줄부터 N개 줄에는 그림이 주어진다.
+
+✦**출력**
+
+적록색약이 아닌 사람이 봤을 때의 구역의 개수와 적록색약인 사람이 봤을 때의 구역의 수를 공백으로 구분해 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    5
+    RRRBB
+    GGBBB
+    BBBRR
+    BBRRR
+    RRRRR
+    ```
+    
+- 출력
+    
+    ```
+    4 3
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [그래프 이론](https://www.acmicpc.net/problem/tag/7)
+- [그래프 탐색](https://www.acmicpc.net/problem/tag/11)
+- [너비 우선 탐색](https://www.acmicpc.net/problem/tag/126)
+- [깊이 우선 탐색](https://www.acmicpc.net/problem/tag/127)
+
+---
+
+## 📄 **문제 분석 요약**
+
+상하좌우 인접해 있는 경우에 같은 구역이라고 본다.
+
+적록색약인 사람이 봤을 때와 아닌 사람이 봤을 때 구역의 수는?
+
+(적록색약이면, R = G는 같은 색상이라고 본다.)
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+BFS/DFS 문제이다.
+
+count를 따로 세야하고, 방문여부 array는 초기화를 해줘야할 것이다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = Number(input[0])
+let grid = input.slice(1).map(v => v.split(""));
+
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+
+const visited = Array.from({length : num}, () => Array.from({length : num}, () => false));
+let cntVisible = 0;
+let cntInvisible = 0;
+
+function dfs (x, y) {
+    let stack = []
+    stack.push([x, y])
+    visited[x][y] = true;
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop()
+        for (let i = 0; i < 4; i++) {
+            let nx = nowX + dx[i]
+            let ny = nowY + dy[i]
+            if ((nx >= 0 && nx < num && ny >= 0 && ny < num) && !visited[nx][ny] && grid[nowX][nowY] === grid[nx][ny]) {
+                visited[nx][ny] = true;
+                stack.push([nx, ny]);
+            }
+        }
+    }
+}
+
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (!visited[i][j]) {
+            dfs(i, j);
+            cntVisible ++;
+        }
+    }
+}
+
+// color를 R = G로 바꾸기 (적록색약)
+grid = grid.map(colors => colors.map(color => color.replace("G", "R")));
+
+// visited, 방문 여부 array 초기화
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        visited[i][j] = false;
+    }
+}
+
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (!visited[i][j]) {
+            dfs(i, j);
+            cntInvisible ++;
+        }
+    }
+}
+
+console.log(cntVisible, cntInvisible)
+```
+
+처음에는 이런 식으로 했는데, for문도 너무 돌고, 전체 그림 구역인 grid를 건들기 싫었다.
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = Number(input[0])
+const grid = input.slice(1).map(v => v.split(""));
+
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+
+// visited 배열 초기화 (적록색약일 때도 구해야하기 때문)
+function getVisited () {
+    return Array.from({length : num}, () => Array.from({length : num}, () => false));
+}
+let visited = getVisited();
+let cntVisible = 0;
+let cntInvisible = 0;
+
+function dfs (x, y, visible) {
+    let stack = [[x, y]]
+    visited[x][y] = true;
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop()
+        for (let i = 0; i < 4; i++) {
+            let nx = nowX + dx[i]
+            let ny = nowY + dy[i]
+            if (nx >= 0 && nx < num && ny >= 0 && ny < num && !visited[nx][ny]) {
+                // 보통일 때
+                if (visible) {
+                    if (grid[nowX][nowY] === grid[nx][ny]) {
+                        visited[nx][ny] = true;
+                        stack.push([nx, ny]);
+                    }
+                // 적록색약일 때
+                } else {
+                    // G == R 똑같이 보이므로
+                    if ((grid[nowX][nowY] === 'R' && grid[nx][ny] === 'G') || (grid[nowX][nowY] === 'G' && grid[nx][ny] === 'R')) {
+                        visited[nx][ny] = true;
+                        stack.push([nx, ny]);
+                    } else if (grid[nowX][nowY] === grid[nx][ny]) {
+                        visited[nx][ny] = true;
+                        stack.push([nx, ny]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (!visited[i][j]) {
+            dfs(i, j, true);
+            cntVisible ++;
+        }
+    }
+}
+
+visited = getVisited();
+
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (!visited[i][j]) {
+            dfs(i, j, false);
+            cntInvisible ++;
+        }
+    }
+}
+
+console.log(cntVisible, cntInvisible);
+```
+
+변경점이 몇 개 있다.
+
+1. dfs 함수의 파라미터에 visible이라는 적록색약 여부를 판단하는 boolen 값을 추가하고, `!visible`(적록색약일 때)는 현재 색과 인접 색이 R, G일 때도 stack에 push해주도록 했다.
+2. 방문 여부 배열을 함수 얻을 수 있게 따로 만들어주었다.
+3. default stack는 바로 기본값을 넣어주었다.
+    
+    (처음에 빈 stack에 push해줄 필요 없을 것 같다.)
+    
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+배열 초기화할 때 함수로 설정해두는 것도 나쁘지 않아보인다. 좀 더 나은 방법이 없는지 고민해보자.
+
+</details>
+<details>
+<summary>5430번: AC</summary>
+
+[](https://www.acmicpc.net/problem/5430)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 256 MB | 151389 | 34285 | 24233 | 20.190% |
+
+**✦문제**
+
+선영이는 주말에 할 일이 없어서 새로운 언어 AC를 만들었다. AC는 정수 배열에 연산을 하기 위해 만든 언어이다. 이 언어에는 두 가지 함수 R(뒤집기)과 D(버리기)가 있다.
+
+함수 R은 배열에 있는 수의 순서를 뒤집는 함수이고, D는 첫 번째 수를 버리는 함수이다. 배열이 비어있는데 D를 사용한 경우에는 에러가 발생한다.
+
+함수는 조합해서 한 번에 사용할 수 있다. 예를 들어, "AB"는 A를 수행한 다음에 바로 이어서 B를 수행하는 함수이다. 예를 들어, "RDD"는 배열을 뒤집은 다음 처음 두 수를 버리는 함수이다.
+
+배열의 초기값과 수행할 함수가 주어졌을 때, 최종 결과를 구하는 프로그램을 작성하시오.
+
+**✦입력**
+
+첫째 줄에 테스트 케이스의 개수 T가 주어진다. T는 최대 100이다.
+
+각 테스트 케이스의 첫째 줄에는 수행할 함수 p가 주어진다. p의 길이는 1보다 크거나 같고, 100,000보다 작거나 같다.
+
+다음 줄에는 배열에 들어있는 수의 개수 n이 주어진다. (0 ≤ n ≤ 100,000)
+
+다음 줄에는 [x1,...,xn]과 같은 형태로 배열에 들어있는 정수가 주어진다. (1 ≤ xi ≤ 100)
+
+전체 테스트 케이스에 주어지는 p의 길이의 합과 n의 합은 70만을 넘지 않는다.
+
+✦**출력**
+
+각 테스트 케이스에 대해서, 입력으로 주어진 정수 배열에 함수를 수행한 결과를 출력한다. 만약, 에러가 발생한 경우에는 error를 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    4
+    RDD
+    4
+    [1,2,3,4]
+    DD
+    1
+    [42]
+    RRD
+    6
+    [1,1,2,3,5,8]
+    D
+    0
+    []
+    ```
+    
+- 출력
+    
+    ```
+    [2,1]
+    error
+    [1,2,3,5,8]
+    error
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [구현](https://www.acmicpc.net/problem/tag/102)
+- [자료 구조](https://www.acmicpc.net/problem/tag/175)
+- [문자열](https://www.acmicpc.net/problem/tag/158)
+- [파싱](https://www.acmicpc.net/problem/tag/96)
+- [덱](https://www.acmicpc.net/problem/tag/73)
+
+---
+
+## 📄 **문제 분석 요약**
+
+AC라는 언어에서 R은 배열 순서를 뒤집는 함수고, D는 앞의 문자를 버리는 함수다.
+
+그리고 함수는 “RD”처럼 여러 개를 조합할 수 있는데, 그러면 앞의 함수부터 차례로 수행한다.
+
+큐를 활용한 문제 같다. 굳이 큐 아니더라도 될 거 같긴 하다.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+(명령어를 하나씩 앞에부터 차례로 본다)
+
+if (명령어가 R이면) 배열의 순서를 뒤집는다
+
+If (명령어가 D이면) 배열 앞의 문자를 버린다
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = input.shift();
+let testCases = []
+for (let i = 0; i < input.length; i+=3) {
+    testCases.push(input.slice(i, i + 3))
+}
+
+testCases.forEach(testCase => {
+    let cmd = testCase[0]
+    let arr = JSON.parse(testCase[2])
+
+    for (let nowCmd of cmd) {
+        if (arr.length === 0) break
+        if (nowCmd === "R") {
+            arr = arr.reverse();
+        } else if (nowCmd === "D") {
+            arr.shift();
+        }
+    }
+    
+    if (arr.length === 0) {
+        console.log("error");
+    } else {
+    console.log(arr)
+    }
+})
+```
+
+### 틀린 이유
+
+시간 초과
+
+왜냐하면 `reverse()` 함수는 O(n)으로 배열 전체를 순회하기 때문이다.
+
+그렇게 되면 입력값을 봤을 때 배열의 수가 100,000개인데, 바깥에 for문이 있으니 최대 100,000,000,000번이 될 것이다.
+
+이것 때문에 시간 초과가 난 것 같다.
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = input.shift();
+for (let i = 0; i < input.length; i += 3) {
+    let cmd = input[i]
+    let arr = JSON.parse(input[i + 2])
+    let isReverse = false;
+    let isError = false;
+
+    for (let nowCmd of cmd) {
+        if (nowCmd === "R") {
+            isReverse = !isReverse;
+        } else if (nowCmd === "D") {
+            if (arr.length === 0) {
+                isError = true;
+            }
+            isReverse ? arr.pop() : arr.shift()
+        }
+    }
+    console.log(isError ? "error" : isReverse ? arr.reverse() : arr)
+}
+```
+
+### 틀린 이유
+
+아예 그냥 틀림… 사실 시간초과보다 정답도 틀린 것에 충격적이다.
+
+알고보니 배열을 출력하면 [1, 2, 3, 4, 5] 이런 식으로 배열 사이에 공백이 붙는다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt"
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = input.shift();
+
+for (let i = 0; i < input.length; i += 3) {
+    let cmd = input[i]
+    let arr = JSON.parse(input[i + 2])
+    // 명령어에 R이 많을수록 reverse() 명령어를 계속 실행해야하니, 변수를 통해 제일 마지막에만 뒤바꿔주면 된다.
+    let isReverse = false;
+    // 에러도 마찬가지로 관리하기 쉽게 변수로 할당해주었다.
+    let isError = false;
+
+    for (let nowCmd of cmd) {
+        if (nowCmd === "R") {
+            // R을 입력 받으면 isReverse의 boolean값을 뒤바꿔준다.
+            isReverse = !isReverse;
+        } else if (nowCmd === "D") {
+            // arr이 없는데 delete를 하면 error니 break한다.
+            // 추가 명령어가 없으니 더 이상 R, D의 명령어를 볼 필요가 없다.
+            if (arr.length === 0) {
+                isError = true;
+                break
+            }
+            // Reverse면 뒤에서 꺼내고, 아니면 앞에서 꺼낸다.
+            isReverse ? arr.pop() : arr.shift()
+        }
+    }
+    // 에러면 error 출력, Reverse의 상태에 따라 arr의 순서를 변경하여 출력한다.
+    console.log(isError ? "error" : JSON.stringify(isReverse ? arr.reverse() : arr))
+}
+```
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+`JSON.stringify()`로 Javascript 값이나 객체를 문자열로 변환해주었다.
+
+사실 당연한게 `JSON.parse()`로 문자열을 Javascript로 변환해주었는데, 결과값도 동일한 타입으로 반환해줘야한다. (문제에는 정확하게 쓰여져 있진 않지만, 출력 예제에는 그렇게 보인다.)
+
+단순한 문제라고 생각했는데, 시간 초과가 뜨니 함수에 대한 대략적인 시간복잡도도 생각해두어야할 것 같다.
+
+</details>
+
+<details>
+<summary>1003번: 피보나치 함수</summary>
+
+[](https://www.acmicpc.net/problem/1003)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 0.25 초 (추가 시간 없음) | 128 MB | 221338 | 68737 | 54313 | 33.301% |
+
+**✦문제**
+
+다음 소스는 N번째 피보나치 수를 구하는 C++ 함수이다.
+
+```cpp
+int fibonacci(int n) {
+    if (n == 0) {
+        printf("0");
+        return 0;
+    } else if (n == 1) {
+        printf("1");
+        return 1;
+    } else {
+        return fibonacci(n‐1) + fibonacci(n‐2);
+    }
+}
+```
+
+`fibonacci(3)`을 호출하면 다음과 같은 일이 일어난다.
+
+- `fibonacci(3)`은 `fibonacci(2)`와 `fibonacci(1)` (첫 번째 호출)을 호출한다.
+- `fibonacci(2)`는 `fibonacci(1)` (두 번째 호출)과 `fibonacci(0)`을 호출한다.
+- 두 번째 호출한 `fibonacci(1)`은 1을 출력하고 1을 리턴한다.
+- `fibonacci(0)`은 0을 출력하고, 0을 리턴한다.
+- `fibonacci(2)`는 `fibonacci(1)`과 `fibonacci(0)`의 결과를 얻고, 1을 리턴한다.
+- 첫 번째 호출한 `fibonacci(1)`은 1을 출력하고, 1을 리턴한다.
+- `fibonacci(3)`은 `fibonacci(2)`와 `fibonacci(1)`의 결과를 얻고, 2를 리턴한다.
+
+1은 2번 출력되고, 0은 1번 출력된다. N이 주어졌을 때, `fibonacci(N)`을 호출했을 때, 0과 1이 각각 몇 번 출력되는지 구하는 프로그램을 작성하시오.
+
+**✦입력**
+
+첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+
+각 테스트 케이스는 한 줄로 이루어져 있고, N이 주어진다. N은 40보다 작거나 같은 자연수 또는 0이다.
+
+✦**출력**
+
+각 테스트 케이스마다 0이 출력되는 횟수와 1이 출력되는 횟수를 공백으로 구분해서 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    #TC 1
+    3
+    0
+    1
+    3
+    
+    #TC 2
+    2
+    6
+    22
+    ```
+    
+- 출력
+    
+    ```
+    #TC 1
+    1 0
+    0 1
+    1 2
+    
+    #TC 2
+    5 8
+    10946 17711
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [다이나믹 프로그래밍](https://www.acmicpc.net/problem/tag/25)
+
+---
+
+## 📄 **문제 분석 요약**
+
+피보나치 함수를 호출할 때마다, `fibonacci(0)`과, `fibonacci(1)`이 각 각 몇 번 출력되는지 구해야한다.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+이것도 DP 느낌이 들었다.
+
+시간 제한이 0.25초기 때문에. fibonacci를 직접 구현해서 몇 번 출력되는지 cnt를 하라는 건 아니다.
+
+직접 작성해보면서 찾아보니
+
+|  | 0의 개수 | 1의 개수 |
+| --- | --- | --- |
+| fibonacci(0) | 1 | 0 |
+| fibonacci(1) | 0 | 1 |
+| fibonacci(2) | 1 | 1 |
+| fibonacci(3) | 1 | 2 |
+| fibonacci(4) | 2 | 3 |
+
+`dp[i] = dp[i - 1] + dp[i - 2]`
+(i ≥ 2, dp[0][0] = 1, dp[0][1] = 0, dp[1][0] = 0, dp[1][1] = 1)
+(0과 1 둘 다 점화식은 동일함)
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n").map(Number);
+
+const num = input.shift();
+
+memoZero = [1, 0, 0];
+memoOne = [0, 1, 1];
+
+memoZero[3] = 1;
+memoOne[3] = 2;
+memoZero[4] = 2;
+memoOne[4] = 3;
+
+for (let i = 5; i <= Math.max(...input); i++) {
+    memoZero[i] = memoZero[i - 1] + memoZero[i - 2];
+    memoOne[i] = memoOne[i - 1] + memoOne[i - 2];
+}
+
+for (number of input) {
+    console.log(memoZero[number] + " " + memoOne[number]);
+}
+```
+
+### 틀린 이유
+
+처음에 일단, n이 5부터인줄 알았다.
+
+dp[2]를 잘못 세아렸기 때문인데, dp[2]에서 dp[0]은 호출이 안되는 줄 알았다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n").map(Number);
+
+const num = input.shift();
+
+memoZero = [1, 0];
+memoOne = [0, 1];
+
+for (let i = 2; i <= Math.max(...input); i++) {
+    memoZero[i] = memoZero[i - 1] + memoZero[i - 2];
+    memoOne[i] = memoOne[i - 1] + memoOne[i - 2];
+}
+
+for (number of input) {
+    console.log(memoZero[number] + " " + memoOne[number]);
+}
+```
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n").map(Number);
+
+const num = input.shift();
+
+memoCnt = [[1, 0], [0, 1]]
+
+for (let i = 2; i <= Math.max(...input); i++) {
+    memoCnt[i] = [ memoCnt[i - 1][0] + memoCnt[i - 2][0], memoCnt[i - 1][1] + memoCnt[i - 2][1]];
+}
+
+for (number of input) {
+    console.log(memoCnt[number][0], memoCnt[number][1]);
+}
+```
+
+점화식을 제대로 하여 다시 풀었다.
+
+각각 배열을 만들어주었는데, 하나의 배열로 관리를 하였다.
+
+성능 측면에서는 크게 차이 없을 것 같은데,
+
+첫 번째 코드는 가독성이 좋은 것 같고, 두 번째 코드는 한 배열에 정보를 담을 수 있어서 간결할 수는 있다.
+(취향차이)
+
+## 🕖 시간복잡도
+
+$O(n + m)$
+
+m = 입력된 숫자 중 최대값
+
+## 💡 느낀 점 or 기억할 정보
+
+</details>
+<details>
+
+<summary>2667번: 단지번호 붙이기</summary>
+
+[](https://www.acmicpc.net/problem/2667)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 128 MB | 187434 | 83958 | 53463 | 42.702% |
+
+**✦문제**
+
+<그림 1>과 같이 정사각형 모양의 지도가 있다. 1은 집이 있는 곳을, 0은 집이 없는 곳을 나타낸다. 철수는 이 지도를 가지고 연결된 집의 모임인 단지를 정의하고, 단지에 번호를 붙이려 한다. 여기서 연결되었다는 것은 어떤 집이 좌우, 혹은 아래위로 다른 집이 있는 경우를 말한다. 대각선상에 집이 있는 경우는 연결된 것이 아니다. <그림 2>는 <그림 1>을 단지별로 번호를 붙인 것이다. 지도를 입력하여 단지수를 출력하고, 각 단지에 속하는 집의 수를 오름차순으로 정렬하여 출력하는 프로그램을 작성하시오.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/705c7877-060b-46a6-b1f8-8781900ddb28/f9b398e2-60ad-4881-aa6c-157bcef51611/Untitled.png)
+
+**✦입력**
+
+첫 번째 줄에는 지도의 크기 N(정사각형이므로 가로와 세로의 크기는 같으며 5≤N≤25)이 입력되고, 그 다음 N줄에는 각각 N개의 자료(0혹은 1)가 입력된다.
+
+✦**출력**
+
+첫 번째 줄에는 총 단지수를 출력하시오. 그리고 각 단지내 집의 수를 오름차순으로 정렬하여 한 줄에 하나씩 출력하시오.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    7
+    0110100
+    0110101
+    1110101
+    0000111
+    0100000
+    0111110
+    0111000
+    ```
+    
+- 출력
+    
+    ```
+    3
+    7
+    8
+    9
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [그래프 이론](https://www.acmicpc.net/problem/tag/7)
+- [그래프 탐색](https://www.acmicpc.net/problem/tag/11)
+- [너비 우선 탐색](https://www.acmicpc.net/problem/tag/126)
+- [깊이 우선 탐색](https://www.acmicpc.net/problem/tag/127)
+
+---
+
+## 📄 **문제 분석 요약**
+
+1은 집이 있는 곳, 0은 집이 없는 곳이다.
+
+상하좌우로 연결된 집의 모임에 단지를 정한다.
+
+단지수가 몇 개인지, 단지에 속한 집의 수를 오름차순으로 정렬해서 출력해라.
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+전형적인 DFS/BFS 문제이다.
+
+DFS 함수 안에서 스택에 단지를 넣을 때마다 단지수를 세아려야 할 것이고, DFS가 끝날 때마다 그 단지수를 배열에 넣어야할 것 같다.
+
+그리고, 배열 길이와 배열을 오름차순 정렬하여 하나씩 출력하면 될 것이다.
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = Number(input.shift());
+
+const guidance = input.map(v => v.split(''));
+
+let visited = Array.from({length: num}, () => Array.from({length: num}, () => false));
+
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+
+function dfs (x, y) {
+    // 단지내 집 수 카운트 (default가 1인 이유는 이미 해당 지점 탐색을 시작할 때 그 지점의 집을 세아리기 때문)
+    let cnt = 1;
+    let stack = [[x, y]];
+    visited[x][y] = true;
+
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+
+        for (let i = 0; i < 4; i++) {
+            let nx = nowX + dx[i];
+            let ny = nowY + dy[i];
+        
+            // 오류 TypeError: Cannot read properties of undefined (reading '1')
+            if (guidance[nx][ny] === "1" && nx >= 0 && nx < num && ny >= 0 && ny < num && !visited[nx][ny]) {
+                visited[nx][ny] = true;
+                cnt ++;
+                stack.push([nx, ny])
+            }
+        }
+    }
+    return cnt
+}
+
+// 집의 수를 관리할 array
+let lst = [];
+
+// 순차적으로 탐색하면서 집이 있거나 아직 방문하지 않은 곳 dfs
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (guidance[i][j] === "1" && !visited[i][j]) {
+            // 결과 바로 array에 push
+            let home = dfs(i, j);
+            lst.push(home);
+        }
+    }
+}
+
+// 오름차순으로 정렬해서 출력해야함
+lst = lst.sort();
+
+// 단지수
+console.log(lst.length);
+
+// 단지에 속하는 집의 수
+for (home of lst) {
+    console.log(home);
+}
+```
+
+### 틀린 이유
+
+왜 안되지 했는데 지도 범위 조건을 먼저 확인하고 거기에 집이 있는지 봐야한다.
+
+## **❌ 틀린 코드(2)**
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = Number(input.shift());
+
+const guidance = input.map(v => v.split(''));
+
+let visited = Array.from({length: num}, () => Array.from({length: num}, () => false));
+
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+
+function dfs (x, y) {
+    // 단지내 집 수 카운트 (default가 1인 이유는 이미 해당 지점 탐색을 시작할 때 그 지점의 집을 세아리기 때문)
+    let cnt = 1;
+    let stack = [[x, y]];
+    visited[x][y] = true;
+
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+
+        for (let i = 0; i < 4; i++) {
+            let nx = nowX + dx[i];
+            let ny = nowY + dy[i];
+        
+            // 지도 안에 있고, 아직 방문하지 않았고, 집이 있는 곳일 경우
+            if (nx >= 0 && nx < num && ny >= 0 && ny < num && !visited[nx][ny] && guidance[nx][ny] === "1") {
+                visited[nx][ny] = true;
+                cnt ++;
+                stack.push([nx, ny])
+            }
+        }
+    }
+    return cnt
+}
+
+// 집의 수를 관리할 array
+let lst = [];
+
+// 순차적으로 탐색하면서 집이 있거나 아직 방문하지 않은 곳 dfs
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (guidance[i][j] === "1" && !visited[i][j]) {
+            // 결과 바로 array에 push
+            let home = dfs(i, j);
+            lst.push(home);
+        }
+    }
+}
+
+// 오름차순으로 정렬해서 출력해야함
+lst = lst.sort();
+
+// 단지수
+console.log(lst.length);
+
+// 단지에 속하는 집의 수
+for (home of lst) {
+    console.log(home);
+}
+```
+
+### 틀린 이유
+
+틀렸습니다.
+
+이유를 고민해보니 일단 sort가 기억날랑말랑한 상태로 썼어서 오름차순 정렬이 안됐나싶었다.
+
+sort의 파라미터를 생략하면, 모두 문자열 취급되며, 유니코드 값 순서대로 정렬된다고 한다.
+
+[10, 2, 1]을 정렬하면 [1, 10, 2]로 정렬된다.
+
+각각 ‘1’, ‘0’과 ‘2’의 유니코드 값을 비교하여 1로 시작하기 때문에 10이 2보다 더 앞에 있다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+const num = Number(input.shift());
+
+const guidance = input.map(v => v.split(''));
+
+let visited = Array.from({length: num}, () => Array.from({length: num}, () => false));
+
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+
+function dfs (x, y) {
+    // 단지내 집 수 카운트 (default가 1인 이유는 이미 해당 지점 탐색을 시작할 때 그 지점의 집을 세아리기 때문)
+    let cnt = 1;
+    let stack = [[x, y]];
+    visited[x][y] = true;
+
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+
+        for (let i = 0; i < 4; i++) {
+            let nx = nowX + dx[i];
+            let ny = nowY + dy[i];
+        
+            // 지도 안에 있고, 아직 방문하지 않았고, 집이 있는 곳일 경우
+            if (nx >= 0 && nx < num && ny >= 0 && ny < num && !visited[nx][ny] && guidance[nx][ny] === "1") {
+                visited[nx][ny] = true;
+                cnt ++;
+                stack.push([nx, ny])
+            }
+        }
+    }
+    return cnt
+}
+
+// 집의 수를 관리할 array
+let lst = [];
+
+// 순차적으로 탐색하면서 집이 있거나 아직 방문하지 않은 곳 dfs
+for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+        if (guidance[i][j] === "1" && !visited[i][j]) {
+            // 결과 바로 array에 push
+            let home = dfs(i, j);
+            lst.push(home);
+        }
+    }
+}
+
+// 오름차순으로 정렬해서 출력해야함
+lst.sort((a, b) => a - b);
+
+// 단지수
+console.log(lst.length);
+
+// 단지에 속하는 집의 수
+for (home of lst) {
+    console.log(home);
+}
+```
+
+오름차순으로 잘 출력했다!
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+```jsx
+const directions = [
+    [-1, 0], // up
+    [1, 0], // down
+    [0, -1], // left
+    [0, 1]  // right
+];
+
+...
+
+for (let [dx, dy] of directions) {
+...
+}
+```
+
+상하좌우 이렇게 써도 괜찮아보인다. 나름 직관적인 것 같다.
+</details>
+<details>
+
+<summary>1012번: 유기농 배추</summary>
+
+[](https://www.acmicpc.net/problem/1012)
+
+| 시간 제한 | 메모리 제한 | 제출 | 정답 | 맞힌 사람 | 정답 비율 |
+| --- | --- | --- | --- | --- | --- |
+| 1 초 | 512 MB | 190411 | 77412 | 51585 | 38.380% |
+
+**✦문제**
+
+차세대 영농인 한나는 강원도 고랭지에서 유기농 배추를 재배하기로 하였다. 농약을 쓰지 않고 배추를 재배하려면 배추를 해충으로부터 보호하는 것이 중요하기 때문에, 한나는 해충 방지에 효과적인 배추흰지렁이를 구입하기로 결심한다. 이 지렁이는 배추근처에 서식하며 해충을 잡아 먹음으로써 배추를 보호한다. 특히, 어떤 배추에 배추흰지렁이가 한 마리라도 살고 있으면 이 지렁이는 인접한 다른 배추로 이동할 수 있어, 그 배추들 역시 해충으로부터 보호받을 수 있다. 한 배추의 상하좌우 네 방향에 다른 배추가 위치한 경우에 서로 인접해있는 것이다.
+
+한나가 배추를 재배하는 땅은 고르지 못해서 배추를 군데군데 심어 놓았다. 배추들이 모여있는 곳에는 배추흰지렁이가 한 마리만 있으면 되므로 서로 인접해있는 배추들이 몇 군데에 퍼져있는지 조사하면 총 몇 마리의 지렁이가 필요한지 알 수 있다. 예를 들어 배추밭이 아래와 같이 구성되어 있으면 최소 5마리의 배추흰지렁이가 필요하다. 0은 배추가 심어져 있지 않은 땅이고, 1은 배추가 심어져 있는 땅을 나타낸다.
+
+| 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 |
+| 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 |
+
+**✦입력**
+
+입력의 첫 줄에는 테스트 케이스의 개수 T가 주어진다. 그 다음 줄부터 각각의 테스트 케이스에 대해 첫째 줄에는 배추를 심은 배추밭의 가로길이 M(1 ≤ M ≤ 50)과 세로길이 N(1 ≤ N ≤ 50), 그리고 배추가 심어져 있는 위치의 개수 K(1 ≤ K ≤ 2500)이 주어진다. 그 다음 K줄에는 배추의 위치 X(0 ≤ X ≤ M-1), Y(0 ≤ Y ≤ N-1)가 주어진다. 두 배추의 위치가 같은 경우는 없다.
+
+✦**출력**
+
+각 테스트 케이스에 대해 필요한 최소의 배추흰지렁이 마리 수를 출력한다.
+
+**✦예제입력 및 출력**
+
+- 입력
+    
+    ```
+    #TC 1
+    2
+    10 8 17
+    0 0
+    1 0
+    1 1
+    4 2
+    4 3
+    4 5
+    2 4
+    3 4
+    7 4
+    8 4
+    9 4
+    7 5
+    8 5
+    9 5
+    7 6
+    8 6
+    9 6
+    10 10 1
+    5 5
+    
+    #TC 2
+    1
+    5 3 6
+    0 2
+    1 2
+    2 2
+    3 2
+    4 2
+    4 0
+    ```
+    
+- 출력
+    
+    ```
+    #TC 1
+    5
+    1
+    
+    #TC 2
+    2
+    ```
+    
+
+**✦알고리즘 분류**
+
+- [그래프 이론](https://www.acmicpc.net/problem/tag/7)
+- [그래프 탐색](https://www.acmicpc.net/problem/tag/11)
+- [너비 우선 탐색](https://www.acmicpc.net/problem/tag/126)
+- [깊이 우선 탐색](https://www.acmicpc.net/problem/tag/127)
+
+---
+
+## 📄 **문제 분석 요약**
+
+0은 배추가 심어져 있지 않은 땅, 1은 배추가 심어져 있는 땅이다.
+
+배추흰지렁이는 상하좌우 옮겨다니면서 해충으로 보호해준다.
+
+해당 밭에 심어져있는 배추를 다 보호하려면 총 몇 마리의 배추흰지렁이가 필요할까?
+
+### 시간/공간복잡도 제약
+
+## **🛠️ 알고리즘 설계**
+
+DFS/BFS 문제이다.
+
+특이한 점은 testcase가 첫 줄에 있다는 점. 그래서 visited나 전체 밭의 2차원 배열 등 초기화를 해줘야한다.
+
+그리고 배추 위치가 주어져있기 때문에 굳이 모든 2차원 배열을 돌 필요는 없고, 배추 위치만 돌면 된다.
+
+## **❌ 틀린 코드(1)**
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+// 테스트 케이스 개수
+const tc = input.shift();
+// 가로, 세로, 배추 심어져 있는 위치 개수
+const [row, col, locCnt] = input.shift().split(" ");
+
+// 전체 밭
+const field = Array.from({length: col}, () => Array.from({length: row}, () => 0));
+// 배추 위치
+for (loc of input) {
+    let [locY, locX] = loc.split(" ").map(Number);
+    field[locX][locY] = 1;
+}
+
+// 방문 체크 및 상하좌우 이동
+const visited = Array.from({length: col}, () => Array.from({length: row}, () => false));
+const directions = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1]
+]
+
+function dfs (x, y) {
+    let stack = [[x, y]]
+    visited[x][y] = true;
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+        visited[nowX][nowY] = true;
+
+        // 상하좌우 탐색
+        for (let [dx, dy] of directions) {
+            let nx = nowX + dx;
+            let ny = nowY + dy;
+            // 해당 위치가 밭 안이고, 방문하지 않았고, 배추가 있다면
+            if ((nx >= 0 && nx < col && ny >= 0 && ny < row) && !visited[nx][ny] && field[nx][ny] === 1) {
+                stack.push([nx, ny]);
+                visited[nx][ny] = true;
+            }
+        }
+    }
+}
+
+let cnt = 0;
+
+for (loc of input) {
+    let [locY, locX] = loc.split(" ").map(Number);
+    if (!visited[locX][locY]) {
+        dfs(locX, locY);
+        cnt ++;
+    }
+}
+console.log(cnt);
+```
+
+### 틀린 이유
+
+틀린 건 아니고, 초기화 로직이 없다.
+
+테스트 케이스가 하나였으면 맞았을 것 같다.
+
+## 💡 정답 코드
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+// 테스트 케이스 개수
+const tc = input.shift();
+
+// 상하좌우 한번 써보기
+const directions = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1]
+]
+
+// dfs지만, test case가 여러 개기 때문에, 각각 row/col/field/visited를 받아야한다.
+function dfs (x, y, row, col, field, visited) {
+    let stack = [[x, y]]
+    visited[x][y] = true;
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+        visited[nowX][nowY] = true;
+
+        // 상하좌우 탐색
+        for (let [dx, dy] of directions) {
+            let nx = nowX + dx;
+            let ny = nowY + dy;
+            // 해당 위치가 밭 안이고, 방문하지 않았고, 배추가 있다면
+            if ((nx >= 0 && nx < col && ny >= 0 && ny < row) && !visited[nx][ny] && field[nx][ny] === 1) {
+                stack.push([nx, ny]);
+                visited[nx][ny] = true;
+            }
+        }
+    }
+}
+
+// test case 개수만큼 탐색
+for (let i = 0; i < tc; i++) {
+
+    // 첫째 줄 가로길이, 세로길이, 배추가 심어져 있는 위치의 개수
+    let [row, col, locCnt] = input.shift().split(" ");
+    // 배추가 심어져 있는 위치의 개수만큼 splice하여 'location'이라는 배추가 심어져 있는 위치 배열 생성
+    let location = input.splice(0, locCnt);
+    
+    // 기본 밭의 정보(어디 심어져있는지, 밭의 2차원 배열, 방문 여부 배열) 갱신
+    let field = Array.from({length: col}, () => Array.from({length: row}, () => 0));
+    for (loc of location) {
+        let [locY, locX] = loc.split(" ").map(Number);
+        field[locX][locY] = 1;
+    }
+    let visited = Array.from({length: col}, () => Array.from({length: row}, () => false));
+
+    // 지렁이 개수
+    let cnt = 0;
+
+    // 배추가 심어져 있는 위치 돌기
+    for (loc of location) {
+        let [locY, locX] = loc.split(" ").map(Number);
+        if (!visited[locX][locY]) {
+            dfs(locX, locY, row, col, field, visited);
+            // dfs하면 지렁이 개수 추가
+            cnt ++;
+        }
+    }
+
+    // test case 한 번 끝날때 마다 지렁이 개수 출력
+    console.log(cnt);
+}
+
+```
+
+for 문으로 test case만큼 `split`과 `splice`로 input을 나눠주며 진행했다.
+
+그리고 dfs 함수가 끝나면 지렁이 개수를 하나씩 카운트해주었다. test case for문이 한 번 돌 때마다 그 지렁이 개수는 출력해주어야한다.
+
+dfs 함수에 row, col이 없다길래 row, col을 바로 넣어줬는데… 뭔가 dfs 함수의 파라미터가 많은 걸 요구한다.
+
+```jsx
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "run/input.txt";
+const input = fs.readFileSync(filePath).toString().trim().split("\n");
+
+// 테스트 케이스 개수
+const tc = input.shift();
+
+// 상하좌우 한번 써보기
+const directions = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1]
+]
+
+// dfs지만, test case가 여러 개기 때문에, 각각의 field/visited를 받아야한다.
+function dfs (x, y, field, visited) {
+    // field(2차원 배열)의 전체 길이는 세로길이,
+    // field(2차원 배열)의 하나의 배열의 길이는 가로길이다.
+    let row = field[0].length;
+    let col = field.length;
+    let stack = [[x, y]]
+    visited[x][y] = true;
+    while (stack.length) {
+        let [nowX, nowY] = stack.pop();
+        visited[nowX][nowY] = true;
+
+        // 상하좌우 탐색
+        for (let [dx, dy] of directions) {
+            let nx = nowX + dx;
+            let ny = nowY + dy;
+            // 해당 위치가 밭 안이고, 방문하지 않았고, 배추가 있다면
+            if ((nx >= 0 && nx < col && ny >= 0 && ny < row) && !visited[nx][ny] && field[nx][ny] === 1) {
+                stack.push([nx, ny]);
+                visited[nx][ny] = true;
+            }
+        }
+    }
+}
+
+// test case 개수만큼 탐색
+for (let i = 0; i < tc; i++) {
+
+    // 첫째 줄 가로길이, 세로길이, 배추가 심어져 있는 위치의 개수
+    let [row, col, locCnt] = input.shift().split(" ");
+    // 배추가 심어져 있는 위치의 개수만큼 splice하여 'location'이라는 배추가 심어져 있는 위치 배열 생성
+    let location = input.splice(0, locCnt);
+    
+    // 기본 밭의 정보(어디 심어져있는지, 밭의 2차원 배열, 방문 여부 배열) 갱신
+    let field = Array.from({length: col}, () => Array.from({length: row}, () => 0));
+    for (loc of location) {
+        let [locY, locX] = loc.split(" ").map(Number);
+        field[locX][locY] = 1;
+    }
+    let visited = Array.from({length: col}, () => Array.from({length: row}, () => false));
+
+    // 지렁이 개수
+    let cnt = 0;
+
+    // 배추가 심어져 있는 위치 돌기
+    for (loc of location) {
+        let [locY, locX] = loc.split(" ").map(Number);
+        if (!visited[locX][locY]) {
+            dfs(locX, locY, field, visited);
+            // dfs하면 지렁이 개수 추가
+            cnt ++;
+        }
+    }
+
+    // test case 한 번 끝날때 마다 지렁이 개수 출력
+    console.log(cnt);
+}
+
+```
+
+2차원 배열에서 row(가로 길이)를 구하려면, 한 배열의 길이를 구하면 되고,
+
+col(세로 길이)를 구하려면, 전체 배열의 길이를 구하면 된다.
+
+따라서, 파라미터 중 row, col을 빼주었다.
+
+## 🕖 시간복잡도
+
+## 💡 느낀 점 or 기억할 정보
+
+2차원 배열의 가로 세로 길이 구하는 방법
+
+`let row = field[0].length;` : 가로길이
+
+`let col = field.length;` : 세로길이
+
+</details>
+</details>
