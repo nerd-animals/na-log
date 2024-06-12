@@ -3,7 +3,7 @@
 5:I[5613,[],""]
 7:I[31778,[],""]
 8:I[25250,["5250","static/chunks/5250-f902508d1dda8599.js","7894","static/chunks/app/(contents)/layout-f321296cefda825a.js"],""]
-3:T21e4,    
+3:T20b4,    
 ![image](https://github.com/nerd-animals/na-log/assets/144116866/00c1a4d7-e7fa-495c-b4c8-b37b5b2c9d65)
 
 ## 🤔 정보처리기사?
@@ -57,45 +57,45 @@
 
 개인적으로 시간이 많으면 **넉넉히 4주**, **없다면 2주 만**으로도 괜찮을 것 같다.
 
-- 1주 : 시나공 정보처리기사 필기 기본서 (시간이 없다면 **제외해도 됨**)
+- 1주 : 시나공 정보처리기사 필기 기본서 (📌시간이 없다면 **제외해도 됨**)
 - 2주 ~ 3주 : 기출 (📌**2주**라면 **기출**부터!)
-- 4주 : 정리 및 기출
+- 4주 : 정리 및 기출 (⭐️**핵심**)
 
 ### 🧑🏻‍💻 공부 방법
 
 ![image](https://github.com/nerd-animals/na-log/assets/144116866/3091f10d-d8f1-4033-8898-993f1b6e8d48)
 
 - 1주 : 시나공 정보처리기사 필기 기본서
-    시간이 많기 때문에 나는 첫째 주는 필기 기본서로 공부하였다.
-    CS도 겸사겸사 공부하고 싶었기 때문에 이 점에서는 책 퀄리티는 괜찮은 것 같다.
+    📌시간 많고, CS를 한번 공부해보고 싶은 사람에게 추천!
     하루에 CHAPTER 하나씩 진도를 나갔다. (총 5 CHAPTER)
     
 ![image](https://github.com/nerd-animals/na-log/assets/144116866/e4f5d400-efbd-4c23-8f36-963cc373ae47)
 - 2주 ~ 3주 : 기출
    [흥달쌤](https://www.youtube.com/watch?v=voOb2eCrJV8&list=PLniy99c_7ZfpebxrkxR5rmzzfYgCxp5ql)
-    20년부터 NCS 기준으로 개정됐기에 20년 이후만 보는 것이 좋다.
-    하루에 1회씩 보려고 (1.5배속) 했고, 보면서 위 사진처럼 정리했다.
-    안 될때도 많았고, 다 못 봤을 때는 2일에 1회씩 보기도 했다.
-    
+    📌**20년 이후** 영상 보기(20년 이후 NCS 기반으로 개편)
+    하루에 1회/영상 5개(1.5배속)씩 보려고 했고, 보면서 위 사진처럼 정리했다.
+    다 못 봤을 때는 2일에 1회씩 보기도 했다.
 
 ![image](https://github.com/nerd-animals/na-log/assets/144116866/71de3183-1d40-4104-b820-5324da161993)
 - 4주 : 정리 및 기출
     맨 위에 두 모의고사는 시험 바로 직전에 푼 것 (푼 데까지 채점한 것이니 무시해도 됨)
     
     [CBT](https://www.comcbt.com/)
-    CBT 기출을 돌리면서, 흥달쌤과 CBT에서 자주 나오는 키워드를 요약 정리(파일 공유 참고)하였다.
-    오답모음집으로도 해보고, 년도별로 모의고사도 돌렸다.
-    (그래도 1회 전체를 푸는 게 좋아보임 → 모의고사나 오답모음집은 같은 유형의 문제가 중복되는 경우가 있음)
+    
+    ⭐️**합격 핵심!** 이것만 해도 반은 먹고 간다.
+    흥달쌤과 기출에서 자주 나오는 키워드를 요약 정리(아래 🍯자료 공유 탭 참고)했다.
+    CBT에서 오답모음집과 년도별 모의고사도 풀었다.
+    (But! **1회씩 기출**을 푸는 게 좋아보임 → 오답모음집, 년도별 모의고사는 같은 문제 중복인 경우가 있음)
 
 ### 🔔 응시 팁
 
 - 시험 **20분 전까지** 입실 완료
     - 이때부터 **아무것도 볼 수 없음**
-    (폰으로 보고 있어서 전자기기 막은 건 기억나는데, 혹시 모르니 종이 프린트해가면 좋을 것 같음)
+    (폰으로 보고 있어서 전자기기 막은 건 기억나는데, 혹시 모르니 **종이 프린트**해가면 좋을 것 같음)
     - **CBT 형식**이라 다 풀면 **바로 퇴실** 가능(**시험 사전 점수 바로 공개**)
 - **경남서부국가자격시험장**
     - 네이버 지도에 ‘**한국산업인력공단 경남서부지사**’ 검색
-    - 앞에 주차장 자리 많긴 함(본인은 2-30분 전 갔는데 몇 자리 없었음)
+    - 앞에 주차장 자리 많긴 함(본인은 20-30분 전 갔는데 몇 자리 없었음)
     → 그래도 도매시장 쪽에 주차장이 많으니 주차 걱정은 안해도 될 듯!
     - **근처에 편의점 없으니** 물/초콜릿 등은 미리 사갈 것!
 
@@ -107,12 +107,9 @@
 
 ---
 
-- Q-net 어플 설치(인터넷에서 혹시 모를 오류 발생으로 어플로도 같이 하면 좋음)
-
-- 시험 접수 2~3일 전에 Q-net 공지사항에 올라오는 시험 장소 미리 체크해서 1-3순위 만들어놓기
-    
-- 시험 원서 접수 시작 3일 전 14시 부터 전일 24시까지 : 시험 사전 입력 하기
-(장소 선택 전까지 미리 입력 가능)
+- Q-net 어플 설치(인터넷 오류 발생 방지)
+- 시험 원서 접수 **3일 전 14시**부터 **전일 24시**까지 : 시험 사전 입력 하기
+    - Q-net 공지사항 → 시험 장소 1~3순위 체크 (시험 장소는 당일날 가능)
 
 ![image](https://github.com/nerd-animals/na-log/assets/144116866/ce588b6c-4c4b-4ef0-a8bd-a7032dadde20)
 
@@ -120,11 +117,9 @@
 ### 접수 과정
 
 1. **시험 접수 20분 전**에 미리 어플과 웹페이지 로그인 후, `'마이페이지'` **→** `'원서접수 내역'`
-원서접수내역에서 로그인 안 풀리도록 혹시 모르니, 가끔씩 버튼 눌러주기
 2. **10시 정각**(‘**네이비즘**’ 활용)이 되면 **새로고침 후**, `‘장소선택 및 결제하기’` 버튼 클릭
 (사전입력을 했다면, 여기서부터 접수 시작
-**'원서접수신청'으로 들어가면 신청 내역이 있다고 첫 페이지로 되돌아가니 유의하기!)**
-    
+~~'원서접수신청'~~: 첫 페이지로 되돌아가니 반드시 `‘원서접수 내역'`에서 시작!)
    ![image](https://github.com/nerd-animals/na-log/assets/144116866/19260dbd-0ed1-4070-a869-a965b50263f5)    
     - 청년 국가기술자격시험 **응시료 50% 할인**도 있으니, **해당된다면 꼭 할인받기!**
         [공지사항 상세 | Q-net](https://www.q-net.or.kr/man004.do?id=man00402&gSite=Q&gld=&ARTL_SEQ=5212578&BOARD_ID=Q001&notiType=10)
@@ -140,9 +135,9 @@
 1. 필기 정리본에 나만의 정리를 하고 싶거나
 2. 시간이 너무 없을 때
 
-5과목의 **핵심 및 기출 키워드**를 정리해보았다.
-(공유는 가능하나 **무단 수정 및 상업적 이용은 하지 말아주세요!**
-오타나 잘못된 내용이 있다면 언제든지 블로그 및 유튜브 댓글에 달아주세요!)
+1과목부터 5과목의 **핵심 및 기출 키워드**를 정리한 자료니 활용해보시길 바란다.
+>공유는 가능하나 **상업적 이용 및 무단 수정은 하지 말아주세요!**
+>오타나 잘못된 내용이 있다면 언제든지 블로그 및 유튜브 댓글에 달아주세요!
 
 
 ---
@@ -151,7 +146,7 @@
 
 시험 시간은 **과목당 30분**으로 **총 150분**, 공부를 조금이라도 했다면 널널한 편이다.
 시험 문제 또한 문제은행 형식이라 기출을 많이 돌려보는 것이 좋다.
-(그렇다고 답을 외우기보다는 답의 이유, 근거가 무엇인지 이해하는 것이 중요!)
+(그렇다고 답을 외우기보다는 **답의 이유, 근거**가 무엇인지 이해하는 것이 중요!)
 
 시간을 다 쓰고 나오는 편인데, 일정이 있어 마킹 및 답 체크 목적으로 한 번 다시 보고 총 **40분 뒤**에 퇴실했다.
 
@@ -163,18 +158,17 @@
 
 컴퓨터의 도덕과목이라고 생각하면서 풀었다.
 
-결국에는 프로그래밍이라는 게 특정 목적 중 사용자를 편리하기 위한 시스템을 개발하려는 목적이 있으니, 너무 이상한 답은 오답일 확률이 높다. (속도가 느리다거나, 사용자를 배제한다거나, 데이터를 많이 쓴다거나 등등)
+사용자를 위한 시스템을 개발하는 목적으로 생각해보면 좋다. 너무 이상하거나 과한 답은 오답일 확률이 높다. (속도가 가장 느리다거나, 사용자를 아예 배제한다거나, 데이터를 많이 쓴다거나 등등)
 
-알면 좋지만, 모른다면 이런 느낌을 생각하고 답을 찍는 것이 좋다.
+알면 좋지만, 답을 모르겠다면 이런 느낌을 생각하고 답을 찍는 것이 좋다.
 
 - **4과목**
 과락(40점 미만)만 면해보자…!
 나는 python과 javascript를 다룰 줄 알아 java나 c++에도 괜찮을 줄 알았는데, 생각보다 문제는 많이 어려웠다.
-
 `python`이 그나마 직관적이라고 생각한다. python 문제는 맞춰보도록 해보자.
 
 - **5과목**
-++ 과락(40점 미만)만 면해보자…!
++ 과락(40점 미만)만 면해보자…!
 신기술이나 외우는 문제가 많아서 어렵긴 하다. 모르겠으면 하나로 밀자.
 
 ---
@@ -184,6 +178,6 @@
 a:{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"}
 b:{"display":"inline-block"}
 c:{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0}
-0:["BIHdIoAlqv5eZDMPf4fAi",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/eip/eip-pass-review","c"],{"children":["__PAGE__?{\"slug\":[\"certificate\",\"eip\",\"eip-pass-review\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/eip/eip-pass-review","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"2024년 2회 정보처리기사 필기 합격 후기"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","정보처리기사",{"className":"post-tag","children":"정보처리기사"}],["$","div","비전공자",{"className":"post-tag","children":"비전공자"}],["$","div","노베이스",{"className":"post-tag","children":"노베이스"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Wed, June 12, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
+0:["b-vDioR2ic06aPvmRErth",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/eip/eip-pass-review","c"],{"children":["__PAGE__?{\"slug\":[\"certificate\",\"eip\",\"eip-pass-review\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/eip/eip-pass-review","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"2024년 2회 정보처리기사 필기 합격 후기"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","정보처리기사",{"className":"post-tag","children":"정보처리기사"}],["$","div","비전공자",{"className":"post-tag","children":"비전공자"}],["$","div","노베이스",{"className":"post-tag","children":"노베이스"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Wed, June 12, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
 d:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"2024년 2회 정보처리기사 필기 합격 후기"}],["$","meta","3",{"name":"description","content":"2024년 2회 정보처리기사 비전공자 노베이스 최소 2주, 최대 4주 합격! 어떻게 공부했을까?"}],["$","meta","4",{"property":"og:title","content":"2024년 2회 정보처리기사 필기 합격 후기"}],["$","meta","5",{"property":"og:description","content":"2024년 2회 정보처리기사 비전공자 노베이스 최소 2주, 최대 4주 합격! 어떻게 공부했을까?"}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"2024년 2회 정보처리기사 필기 합격 후기"}],["$","meta","8",{"name":"twitter:description","content":"2024년 2회 정보처리기사 비전공자 노베이스 최소 2주, 최대 4주 합격! 어떻게 공부했을까?"}],["$","link","9",{"rel":"icon","href":"/na-log/favicon.ico","type":"image/x-icon","sizes":"64x64"}]]
 1:null
