@@ -1,0 +1,109 @@
+2:I[20718,["3067","static/chunks/c24cc598-2cbcb84d2b01d13c.js","1244","static/chunks/1244-7dd87e3975005240.js","8059","static/chunks/app/(contents)/post/%5B...slug%5D/page-c3830913be8f137b.js"],""]
+4:I[89203,["3067","static/chunks/c24cc598-2cbcb84d2b01d13c.js","1244","static/chunks/1244-7dd87e3975005240.js","8059","static/chunks/app/(contents)/post/%5B...slug%5D/page-c3830913be8f137b.js"],""]
+5:I[5613,[],""]
+7:I[31778,[],""]
+8:I[25250,["5250","static/chunks/5250-f902508d1dda8599.js","7894","static/chunks/app/(contents)/layout-f321296cefda825a.js"],""]
+3:Tde1,
+## 개요
+
+자료구조를 공부하던 차에 ADT라는 개념을 보게 되었다.
+Abstract Data Type, 직역하면 추상 자료형인데 무엇인지 알아보자.
+
+----
+
+## ADT?
+
+단어 의미 그대로 추상적이다.
+여기서 추상적이라는 의미는, 상세한 내용은 제외하고 중요한 것만 표현한다는 뜻이다.
+즉, 자료구조의 **대표적인 특징**만 표현한 것이다!
+
+이를 통해 자료구조가 어떤 기능을 제공하는지 쉽게 확인할 수 있는데,
+사용자 입장에서는 **사용 설명서**, 개발자 입장에서는 **기능적 요구사항**이 된다.
+중요한 내용만 표현함으로써 자료구조를 간단하게 표현할 수 있다.
+
+세부 구현은 표현하지 않기 때문에 어떤 방식으로 구현해도 괜찮다.
+ADT의 내용만 충족시키면 된다!
+
+## 🦝
+
+자료구조의 **최소 Spec**을 표현한 문서라고 느껴졌다.
+핵심만 표현한다고 하지만, 핵심 사항이라는 것이 대체 뭘까?
+이해관계자가 지켜줘야 할 규칙 같은 것이겠지.
+
+개발자 입장에서는 반드시 지켜야 할 요구사항이라고 볼 수 있겠다.
+
+----
+
+## 예시
+
+대표적인 예시로 **Queue**와 **Stack**이 있다.
+ADT의 개념을 모를 때는 뭔가 모를 이질감이 있었는데,
+자료구조라기엔 추상적인 내용이어서 불편함을 느꼈던 것 같다.
+
+각각에 대한 ADT를 작성해보자.
+
+### 1. Queue
+
+Queue는 `FIFO`(First In, First Out)를 만족하는 자료구조이다.
+즉, 먼저 들어온 데이터가 먼저 나갈 수 있는 기능을 제공한다.
+
+따라서, 아래와 같은 ADT를 작성할 수 있다.
+
+```bash
+- push(item) : item을 Queue에 넣는다.
+- pop(): 가장 먼저 들어온 item을 반환한다.
+- isEmpty(): 현재 Queue에 item의 존재 유무를 반환한다.
+- size(): 현재 가지고 있는 item의 갯수를 반환한다.
+```
+
+### 2. Stack
+
+Stack은 `LIFO`(Last In, First Out)을 만족하는 자료구조다.
+즉, 나중에 들어온 데이터가 먼저 나갈 수 있는 기능을 제공한다.
+
+따라서 아래와 같은 ADT를 작성할 수 있다.
+
+```bash
+- push(item) : item을 Stack에 넣는다.
+- pop(): 가장 마지막에 들어온 item을 반환한다.
+- isEmpty(): 현재 Stack에 item의 존재 유무를 반환한다.
+- size(): 현재 가지고 있는 item의 갯수를 반환한다.
+```
+
+## 🦝
+
+python 문서를 참고하여 간단히 작성해봤다.
+3분정도 걸렸나?
+실제로는 더 자세히 작성해야겠지.
+
+현업에서는 이해관계자 간의 협의 과정이 추가될 것이다.
+3분이 3일이 될지도..
+
+----
+
+## 정리
+
+ADT를 간단히 작성해봤는데, 매우 직관적임을 알 수 있다.
+왜 추상적이라는 표현을 썼는지 알 수 있을 정도로 대충 작성된 느낌이다..ㅋㅋ..
+그럼에도 ADT를 통해서 얻을 수 있는 이점이 있다.
+
+- 직관적으로 자료구조의 기능을 확인할 수 있다.
+- 구현해야 할 기능을 한 눈에 볼 수 있다.
+
+## 🦝
+
+ADT가 정말로 도움이 될까?
+개발 초기였다면 크게 와닿지 않았을 것 같지만, 지금은 협업 측면에서 꼭 필요할 것 같다.
+
+협업을 하다보면, 생각을 맞추는 것이 의외로 어렵다는 것을 느낀다.
+ADT는 팀원의 오해 그리고 나의 실수를 방지하는데에 도움이 된다.
+
+간혹, 말이 꼬여서 마치 내가 잘못한 것처럼 될 때가 있는데... 그런 불편한 상황에서는 정말 큰 도움이 되겠다.
+(~~남 탓을 할 수 있다.~~)6:["slug","computer-science/data-structure/abstract-data-type","c"]
+9:{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"}
+a:{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"}
+b:{"display":"inline-block"}
+c:{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0}
+0:["OqsdoAvUtDZ4EE3fbW5u-",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","computer-science/data-structure/abstract-data-type","c"],{"children":["__PAGE__?{\"slug\":[\"computer-science\",\"data-structure\",\"abstract-data-type\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","computer-science/data-structure/abstract-data-type","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"[Data Structure] Abstract Data Type, ADT"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","computer science",{"className":"post-tag","children":"computer science"}],["$","div"," abstract data type",{"className":"post-tag","children":" abstract data type"}],["$","div"," ADT",{"className":"post-tag","children":" ADT"}],["$","div"," data structure",{"className":"post-tag","children":" data structure"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Sat, June 15, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"🦝 Raccoon"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
+d:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"[Data Structure] Abstract Data Type, ADT"}],["$","meta","3",{"name":"description","content":"Abstract Data Type에 대한 생각을 정리한 글입니다."}],["$","meta","4",{"property":"og:title","content":"[Data Structure] Abstract Data Type, ADT"}],["$","meta","5",{"property":"og:description","content":"Abstract Data Type에 대한 생각을 정리한 글입니다."}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"[Data Structure] Abstract Data Type, ADT"}],["$","meta","8",{"name":"twitter:description","content":"Abstract Data Type에 대한 생각을 정리한 글입니다."}],["$","link","9",{"rel":"icon","href":"/na-log/favicon.ico","type":"image/x-icon","sizes":"64x64"}]]
+1:null
