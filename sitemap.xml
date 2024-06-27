@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://nerd-animals.github.io/na-log</loc>
-<lastmod>2024-06-16T13:30:03.426Z</lastmod>
+<lastmod>2024-06-27T01:47:17.386Z</lastmod>
 </url>
 <url>
 <loc>https://nerd-animals.github.io/na-log/about</loc>
-<lastmod>2024-06-16T13:30:03.426Z</lastmod>
+<lastmod>2024-06-27T01:47:17.386Z</lastmod>
 </url>
 <url>
 <loc>https://nerd-animals.github.io/na-log/post/certificate/eip/eip-pass-review</loc>
@@ -43,5 +43,9 @@
 <url>
 <loc>https://nerd-animals.github.io/na-log/post/git/how-to-install-git-for-mac</loc>
 <lastmod>2024-03-22T00:00:00.000Z</lastmod>
+</url>
+<url>
+<loc>https://nerd-animals.github.io/na-log/post/ssafy/ssafy-first-pass-review</loc>
+<lastmod>2024-06-27T00:00:00.000Z</lastmod>
 </url>
 </urlset>
