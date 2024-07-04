@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://nerd-animals.github.io/na-log</loc>
-<lastmod>2024-06-27T01:47:17.386Z</lastmod>
+<lastmod>2024-07-04T11:44:46.331Z</lastmod>
 </url>
 <url>
 <loc>https://nerd-animals.github.io/na-log/about</loc>
-<lastmod>2024-06-27T01:47:17.386Z</lastmod>
+<lastmod>2024-07-04T11:44:46.331Z</lastmod>
 </url>
 <url>
 <loc>https://nerd-animals.github.io/na-log/post/certificate/eip/eip-pass-review</loc>
@@ -47,5 +47,9 @@
 <url>
 <loc>https://nerd-animals.github.io/na-log/post/ssafy/ssafy-first-pass-review</loc>
 <lastmod>2024-06-27T00:00:00.000Z</lastmod>
+</url>
+<url>
+<loc>https://nerd-animals.github.io/na-log/post/ssafy/ssafy-second-pass-review</loc>
+<lastmod>2024-07-04T00:00:00.000Z</lastmod>
 </url>
 </urlset>
