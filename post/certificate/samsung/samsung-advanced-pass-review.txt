@@ -1,0 +1,124 @@
+2:I[20718,["3067","static/chunks/c24cc598-2cbcb84d2b01d13c.js","1244","static/chunks/1244-7dd87e3975005240.js","8059","static/chunks/app/(contents)/post/%5B...slug%5D/page-c3830913be8f137b.js"],""]
+4:I[89203,["3067","static/chunks/c24cc598-2cbcb84d2b01d13c.js","1244","static/chunks/1244-7dd87e3975005240.js","8059","static/chunks/app/(contents)/post/%5B...slug%5D/page-c3830913be8f137b.js"],""]
+5:I[5613,[],""]
+7:I[31778,[],""]
+8:I[25250,["5250","static/chunks/5250-f902508d1dda8599.js","7894","static/chunks/app/(contents)/layout-f321296cefda825a.js"],""]
+3:T165f,    
+> 시작하기에 앞서, 문제는 당연히 유출할 수 없습니다. 또한, 제가 언급한 내용은 정답이 아니니, 참고만 해주세요!
+
+## 🤔 삼성 SW 역량 테스트 A형
+
+<aside>📝 Advanced
+</aside>
+
+![SW 역량테스트](https://github.com/user-attachments/assets/553d4f5e-3985-4b4d-bf9d-efb4cc8bb188)
+
+소프트웨어 직군 지원자 대상으로 SW 문제해결 역량 측정 목적으로 도입, 주어진 문제에 대한 답안을 직접 코딩하여 문제를 해결하는 실기 방식의 테스트
+
+<figure>
+<img src="https://github.com/user-attachments/assets/7dac01c1-8fb7-40f0-863a-e69e6b605718">
+<figcaption>출처: SWEA</figcaption>
+</figure>
+
+
+SW 역량테스트에서 취득할 수 있는 등급은 다음과 같습니다.
+
+- A(Advanced)
+- B(Professional)
+- C(Expert)
+
+예전에는 SWEA에서 상시 검정을 통해 시험 신청 후 테스트를 볼 수 있었으나, 코로나 이후 상시 검정이 무기한 연기되고, 현재는 삼성전자, 삼성 SDS 알고리즘 특강 수강생, SSAFY 교육생 등 특정 조건을 만족해야 응시 기회가 주어집니다.
+
+📍 SSAFY 12기에서는 A형 제한 시간이 2시간으로 변경되어 진행되었습니다.
+
+## 📌 결과
+
+![결과](https://github.com/user-attachments/assets/054b68e6-7535-4f02-aa33-d5264f6c07ce)
+
+### 🧐 왜 준비했는가?
+
+> 수료 조건 및 B형 응시 자격
+> 
+- 1학기 수료 조건
+    - 비전공자 : IM 취득
+    - 전공자 : A 취득
+
+저는 분반테스트 때 IM을 취득하였기 때문에 수료 조건은 충족하였습니다.
+하지만, 알고리즘 실력도 쌓고, B형 욕심도 조금 있었기 때문에 A형은 자연스럽게 따고 싶다는 욕심이 생겼습니다.
+
+📍 IM과 A형은 모의 시험 / B형은 삼성 코테 PASS 적용 (서류 합격 시)
+
+A형은 두 번만에 취득하였습니다.
+
+### ✨ 합격 기준
+
+- A : 2문제 중 하나만 맞았을 시
+- A+ : 2문제 중 두 개 다 맞았을 시
+
+---
+
+## 🧑🏻‍💻 공부 방법
+
+처음 A형 응시 때는 SWEA에 있는 문제보다 백준 문제를 많이 풀어보았습니다.
+백준 문제도 물론 좋지만, SWEA에 있는 문제가 A형 문제와 좀 더 흡사하였습니다. (당연하게도)
+
+따라서, SWEA에 있는 20문제를 꼭 한 번이라도 훑고 가시는 걸 추천드립니다.
+
+![스터디](https://github.com/user-attachments/assets/ace6f37f-26a3-484c-9dd1-e113318b5f30)
+
+저는 스터디도 활용하여 하루에 무조건 한 문제 이상씩 A형 문제를 돌리는 것으로 진행하였고, 다른 사람들의 코드를 참고하면서 효율적인 문제 풀이 방법을 공유하는 식으로 진행하였습니다.
+(추가적으로도 따로 문제를 더 풀어봄)
+
+### 🔔 응시 팁
+
+- dfs, bfs, 백트래킹, 시뮬레이션 문제 위주로 풀기
+- 두 문제 다 읽어보고 풀이 방법이 떠오를 것 같은 문제 먼저 풀기
+(자신감 있다면 순서대로 풀어도 상관없음 / 두 문제 중 하나만 풀어도 A형을 취득하기 때문)
+- 디버깅 연습 해보기
+- swea로 제출 방법 익숙해지기
+- 
+
+---
+
+## 🍯 자료 공유
+
+[백준 a형 기출](https://www.acmicpc.net/workbook/view/1152)
+
+[SWEA](https://swexpertacademy.com/main/code/problem/problemList.do?contestProbId=&categoryId=&categoryType=&problemTitle=모의&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1)
+
+- CODE -> Problem → 검색란에 모의 검색 → 20문제 풀어보기
+---
+1. [핀볼 게임](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo&categoryId=AWXRF8s6ezEDFAUo&categoryType=CODE&problemTitle=%EC%97%AD%EB%9F%89&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1)
+
+2. [원자 소멸 시뮬레이션](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo&categoryId=AWXRF8s6ezEDFAUo&categoryType=CODE&problemTitle=%EB%AA%A8%EC%9D%98&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1)
+
+3. [벽돌 깨기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRQm6qfL0DFAUo&categoryId=AWXRQm6qfL0DFAUo&categoryType=CODE&problemTitle=%EC%97%AD%EB%9F%89&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1)
+
+4. [요리사](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeUtVakTMDFAVH&categoryId=AWIeUtVakTMDFAVH&categoryType=CODE&problemTitle=%EC%97%AD%EB%9F%89&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1)
+
+5. [보호 필름](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5V1SYKAaUDFAWu&categoryId=AV5V1SYKAaUDFAWu&categoryType=CODE&problemTitle=%EC%97%AD%EB%9F%89&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=2)
+
+6. [등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq)
+
+7. [프로세서 연결하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4suNtaXFEDFAUf&categoryId=AV4suNtaXFEDFAUf&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=3)
+
+시간이 없다면, 7가지는 꼭 풀어보시는 것을 추천드립니다.
+
+---
+
+## ✨ 후기
+
+A형 난이도도 운이라 자기에게 맞는 문제가 나온다면, 쉽게 풀리는 문제도 있으니 응시 자체를 포기하지 마시고 도전해보세요!
+
+---
+
+![small-dancing-white-cat-dance-funny](https://github.com/user-attachments/assets/f3fece6d-28ad-49db-8906-e5e17699cbcd)
+
+<center>B형도 도전해보자고!</center>6:["slug","certificate/samsung/samsung-advanced-pass-review","c"]
+9:{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"}
+a:{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"}
+b:{"display":"inline-block"}
+c:{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0}
+0:["8BTl_LeHTRJmHJruLDR_g",[[["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/samsung/samsung-advanced-pass-review","c"],{"children":["__PAGE__?{\"slug\":[\"certificate\",\"samsung\",\"samsung-advanced-pass-review\"]}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["(contents)",{"children":["post",{"children":[["slug","certificate/samsung/samsung-advanced-pass-review","c"],{"children":["__PAGE__",{},["$L1",[["$","div",null,{"className":"post-wrapper","children":[["$","div",null,{"className":"post-header","children":[["$","div",null,{"className":"post-title","children":"삼성 SW 역량 테스트 A형 취득 후기"}],["$","div",null,{"className":"post-info","children":[["$","div",null,{"className":"post-tags","children":[["$","div","samsung",{"className":"post-tag","children":"samsung"}],["$","div","a형",{"className":"post-tag","children":"a형"}],["$","div","역량 테스트",{"className":"post-tag","children":"역량 테스트"}],["$","div","삼성",{"className":"post-tag","children":"삼성"}]]}],["$","div",null,{"className":"post-date","children":["🗓️"," ","Mon, September 16, 2024"]}]]}],["$","div",null,{"className":"post-author","children":["✍️ written by ",["$","strong",null,{"children":"otter"}]]}]]}],["$","div",null,{"className":"post-content","children":["$","$L2",null,{"content":"$3"}]}]]}],["$","$L4",null,{}]],null]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children","$6","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/1a2bc1315f96f886.css","precedence":"next","crossOrigin":""}]]}]]},["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children","post","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,[["$","div",null,{"className":"page-header-wrapper","children":["$","header",null,{"className":"page-header","children":[["$","div",null,{"className":"home-section","children":["$","$L8",null,{"className":"link","href":"/","children":"na-log"}]}],["$","div",null,{"className":"category-section","children":[["$","$L8",null,{"className":"link","href":"/write","children":"write"}],["$","$L8",null,{"className":"link","href":"/about","children":"about"}]]}]]}]}],["$","main",null,{"className":"contents-wrapper","children":["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children","(contents)","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]],null]]},[null,["$","html",null,{"lang":"ko","children":[["$","head",null,{"children":["$","link",null,{"rel":"stylesheet","href":"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"}]}],["$","body",null,{"children":["$","div",null,{"className":"page-wrapper","children":[["$","$L5",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L7",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$9","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$a","children":"404"}],["$","div",null,{"style":"$b","children":["$","h2",null,{"style":"$c","children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}],["$","div",null,{"className":"footer-wrapper","children":["$","footer",null,{"className":"page-footer","children":"copyright © 2024 by NerdAnimals"}]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/na-log/_next/static/css/dc2dab46305a2006.css","precedence":"next","crossOrigin":""}]],"$Ld"]]]]
+d:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"삼성 SW 역량 테스트 A형 취득 후기"}],["$","meta","3",{"name":"description","content":"삼성 SW 역량 테스트 A형, 비전공자 입과 한달 반에 취득하기"}],["$","meta","4",{"property":"og:title","content":"삼성 SW 역량 테스트 A형 취득 후기"}],["$","meta","5",{"property":"og:description","content":"삼성 SW 역량 테스트 A형, 비전공자 입과 한달 반에 취득하기"}],["$","meta","6",{"name":"twitter:card","content":"summary"}],["$","meta","7",{"name":"twitter:title","content":"삼성 SW 역량 테스트 A형 취득 후기"}],["$","meta","8",{"name":"twitter:description","content":"삼성 SW 역량 테스트 A형, 비전공자 입과 한달 반에 취득하기"}],["$","link","9",{"rel":"icon","href":"/na-log/favicon.ico","type":"image/x-icon","sizes":"64x64"}]]
+1:null
